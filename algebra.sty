@@ -2,7 +2,7 @@
 % Abstract Algebra (M 431 at Montana State University)
 
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
-\ProvidesPackage{analysis}[2020/08/17 Custom HW Template Package]
+\ProvidesPackage{algebra}[2020/08/17 Custom HW Template Package]
 
 \RequirePackage[margin=1in]{geometry}
 \RequirePackage{titlesec}
@@ -29,7 +29,7 @@
 }
 
 \newcommand{\header}[2] {
-	\section*{Exercises #1 --- Problem #2}
+	\section*{Page #1 --- Problem #2}
 }
 
 \newcommand{\problem}[1]{
@@ -52,6 +52,9 @@
 	}
 
 %% useful commands for short hand
+
+% command for a right arrow for a function
+\renewcommand{\to}{\longrightarrow}
 
 % command for spacing out paragraphs in proofs
 \newcommand{\parspace}{\newline\newline\noindent}
