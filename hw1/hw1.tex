@@ -15,7 +15,53 @@
         $$ m(A \cup B) = m(A) + m(B) - m(A \cap B) $$
     }
     \proof{
-
+        We take for granted the fact that $m(A \cup B) = m(A) + m(B)$ if $A,B$ are disjoint sets.
+        Now let's establish some notation.
+        Let $A' = A \setminus (A \cap B)$ and $B' = B \setminus (A \cap B)$.
+        Also let $C_k$ be a subset of $A \cap B$ with $k$ elements ($C_0 = \emptyset$). \parspace
+        We now show a quick proof of the fact that $m(A \cap B)$ is finite.
+        By definition of intersection, $A \cap B \subset A$.
+        But then $A$ cannot contain fewer elements than $A \cap B$, so we must have $m(A) \geq m(A \cap B)$.
+        Then since $A$ is finite, $A \cap B$ is also finite. \parspace
+        We also show that $A' \cap B' = \emptyset$.
+        $A' = A \setminus (A \cap B)$ and $B' = B \setminus (A \cap B)$ so
+        \begin{align*}
+            A' \cap B' &= \{ x \mid x \in A' \text{ and } x \in B' \} \\
+            &= \{ x \mid x \in A \setminus (A \cap B) \text{ and } x \in B \setminus (A \cap B) \} \\
+            &= \{ x \mid (x \in A \text{ and } x \notin A \cap B) \text{ and } (x \in B \text{ and } x \notin A \cap B) \} \\
+            &= \{ x \mid x \in A \text{ and } x \in B \text{ and } x \notin A \cap B \} \\
+            &= \{ x \mid x \in A \cap B \text{ and } x \notin A \cap B \} \\
+            &= \emptyset
+        \end{align*}
+        So $A' \cap B' = \emptyset$. \parspace
+        We now show, via induction, that given $k \in \{ 0, 1, 2, ..., m(A \cap B) \}$, every $C_k \subset A \cap B$ must satisfy $m(A' \cup B' \cup C_k) = m(A' \cup C_k) + m(B' \cup C_k) - m(C_k)$.
+        Consider the base case where $k = 0$.
+        Then there is only one $C_k$ and it must be $C_k = \emptyset$.
+        So we must show that $m(A' \cup B' \cup \emptyset) = m(A' \cup \emptyset) + m(B' \cup \emptyset) - m(\emptyset)$.
+        But then
+        \begin{align*}
+            m(A' \cup B' \cup \emptyset) &= m(A' \cup \emptyset) + m(B' \cup \emptyset) - m(\emptyset) \\
+            m(A' \cup B') &= m(A') + m(B') - 0 \\
+            m(A' \cup B') &= m(A') + m(B')
+        \end{align*}
+        which we already know to be true since $A'$ and $B'$ are disjoint sets.
+        So the base case is proved. \parspace
+        Now suppose that for some $i \in \{ 0, 1, 2, ..., m(A \cap B) - 1 \}$, that we have $m(A' \cup B' \cup C_i) = m(A' \cup C_i) + m(B' \cup C_i) - m(C_i)$ for all $C_i \subset A \cap B$.
+        We must now show that $m(A' \cup B' \cup C_{i+1}) = m(A' \cup C_{i+1}) + m(B' \cup C_{i+1}) - m(C_{i+1})$ for all $C_{i+1} \subset A \cap B$. \parspace
+        For every $i$, we constructed $C_{i+1}$ to have one more element than $C_i$ so we must have $m(C_{i+1}) = m(C_i) + 1 \iff m(C_i) = m(C_{i+1}) - 1$.
+        Furthermore, we constructed $A', B'$ so that for any $k$, $A' \cap C_k = B' \cap C_k = (A' \cup B') \cap C_k = \emptyset$.
+        Then we can say that
+        \begin{align*}
+            m(A' \cup B' \cup C_i) &= m(A' \cup C_i) + m(B' \cup C_i) - m(C_i) \\
+            m(A' \cup B') + m(C_i) &= m(A') + m(C_i) + m(B') + m(C_i) - m(C_i) \\
+            m(A' \cup B') + m(C_{i+1}) - 1 &= m(A') + m(C_{i+1}) - 1 + m(B') + m(C_{i+1}) - 1 - (m(C_{i+1}) - 1) \\
+            m(A' \cup B' \cup C_{i+1}) - 1 &= m(A' \cup C_{i+1}) - 1 + m(B' \cup C_{i+1}) - 1 - m(C_{i+1}) + 1
+        \end{align*}
+        Then the ones cancel, leaving $m(A' \cup B' \cup C_{i+1}) = m(A' \cup C_{i+1}) + m(B' \cup C_{i+1}) - m(C_{i+1})$, which completes the induction. \parspace
+        So now we know that given $k \in \{ 0, 1, 2, ..., m(A \cap B) \}$, every $C_k \subset A \cap B$ must satisfy $m(A' \cup B' \cup C_k) = m(A' \cup C_k) + m(B' \cup C_k) - m(C_k)$.
+        Take $k = m(A \cap B) $, then there is only one $C_k$ and it must be $C_k = A \cap B$.
+        So we must have $ m(A' \cup B' \cup (A \cap B)) = m(A' \cup (A \cap B)) +m (B' \cup (A \cap B)) - m(A \cap B)$.
+        But $A' \cup B' \cup (A \cap B) = A \cup B$, $A' \cup (A \cap B) = A$, and $B' \cup (A \cap B) = B$, so we have $m(A \cup B) = m(A) + m(B) - m(A \cap B)$, which is what needed to be shown.
     }
 \end{exercise}
 
@@ -36,7 +82,10 @@
         If $f: S \to T$ is onto and $g: T \to U$ and $h: T \to U$ are such that $g \circ f = h \circ f$, then $g = h$.
     }
     \proof{
-
+        To show that $g = h$, we must show that $g(t) = h(t)$ for all $t \in T$.
+        Since $g \circ f = h \circ f$, we can say that $(g \circ f)(s) = g(f(s)) = (h \circ f)(s) = h(f(s))$ for all $s \in S$.
+        Then since $f$ is onto, for every $t \in T$, there exists $s_t \in S$ such that $f(s_t) = t$.
+        Then $f(s)$ can be replaced with $t$ to give $g(f(s)) = g(t) = h(f(s)) = h(t)$, which proves that $g = h$.
     }
 \end{exercise}
 
