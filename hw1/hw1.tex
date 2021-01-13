@@ -72,6 +72,33 @@
         Show, for finite sets $A, B$, that $m(A \times B) = m(A)m(B)$.
     }
     \proof{
+        Again, we take for granted the fact that if $A,B$ are disjoint sets then we have $m(A \cup B) = m(A) + m(B)$.
+        As an edge case, consider if $A,B$, or both $A$ and $B$ are the empty set.
+        In this case $A \times B = \emptyset$ and $m(A \times B) = m(\emptyset) = 0$.
+        Also $m(A)m(B) = 0$ because one or both of $m(A), m(B)$ will be 0.
+        Since the statement holds when one or both of $A,B$ is the emptyset, we assume both sets are nonempty for the remainder of the proof. \parspace
+        Now we show that for a singleton $S = \{ s \}$ and a nonempty set $X$, we have $m(S \times X) = m(X)$.
+        We show this equality by establishing a bijection between $S \times X$ and $X$.
+        Consider $f: S \times X \to X$ defined by $f((s, x)) = x$.
+        To show that $f$ is a bijection, we must show it is surjective and injective.
+        The map $f$ is surjective if every element of $X$ is the image of some element of $S \times X $ under $f$.
+        For any $x' \in X$, just choose $(s, x') \in S \times X$, then $f((s, x')) = x'$.
+        So $f$ is surjective, but what about injective?
+        We can show $f$ is injective by proving that $f((s, x_1)) = f((s, x_2))$ implies $(s, x_1) = (s, x_2)$.
+        Suppose we have $f((s, x_1)) = f((s, x_2))$, then it must also be true that $x_1 = x_2$.
+        Since $s = s$ and $x_1 = x_2$, must have $(s, x_1) = (s, x_2)$.
+        Therefore, $f$ is injective.
+        Since $f$ is both injective and surjective, it is a bijection and $m(S \times X) = m(X)$. \parspace
+        We now show, via induction, that for a finite, nonempty collection of mutually disjoint sets $ Y = \{ Y_1, Y_2, ..., Y_n \} $, we have $m(\bigcup_{i=1}^n Y_i) = \sum_{i=1}^n m(Y_i)$.
+        Consider the base case where $n = 1$, then $Y = \{ Y_1 \}$.
+        The left handside becomes $m(\bigcup_{i=1}^1 Y_i) = m(Y_1)$ and the right hand side is $\sum_{i=1}^1 m(Y_i) = m(Y_1)$ so the base case is verified. \parspace
+        Now suppose that for some $k \in \N$, $m(\bigcup_{i=1}^k Y_i) = \sum_{i=1}^k m(Y_i)$.
+        Now we prove that the equality holds for $k+1$. \parspace
+        % prove the induction
+        We now claim that $A \times B$ is such a finite union of sets and that those sets are mutually disjoint. \parspace
+        % show set equality
+        % show mutually disjoint
+        % apply induction and simplify expression
     }
 \end{exercise}
 
