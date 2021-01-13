@@ -18,18 +18,26 @@
         We take for granted the fact that $m(A \cup B) = m(A) + m(B)$ if $A,B$ are disjoint sets.
         Additionally, let's eliminate the edge case where one or both of $A,B$ is the empty set.
         Without loss of generality, let $A = \emptyset$.
-        Then $m(A \cup B) = m(\emptyset \cup B) = m(B)$.
+        Then on the left hand side $m(A \cup B) = m(\emptyset \cup B) = m(B)$.
         Now on the right hand side, $m(A) + m(B) - m(A \cap B) = m(\emptyset) + m(B) - m(\emptyset) \cap B) = 0 + m(B) - m(\emptyset) = m(B) - 0 = m(B)$.
+        Then the LHS equals the RHS.
         From here on, we assume that $A,B$ are nonempty sets. \parspace
         Now let's establish some notation.
         Let $A' = A \setminus (A \cap B)$ and $B' = B \setminus (A \cap B)$.
         We then have three mutually disjoint sets $A', B',$ and $ A \cap B$.
-        Also note that $A = A' \cup (A \cap B)$ and $B = B' \cup (A \cap B)$ by construction. \parspace
-        We now show, via induction, that for a finite, nonempty collection of mutually disjoint, nonempty sets $ Y = \{ Y_1, Y_2, ..., Y_n \} $, we have $m(\bigcup_{i=1}^n Y_i) = \sum_{i=1}^n m(Y_i)$.
+        Also note that $A = A' \cup (A \cap B)$, $B = B' \cup (A \cap B)$, and $A \cup B = A' \cup B' \cup (A \cap B)$. \parspace
+        We now show, via induction, that for a finite, nonempty collection of mutually disjoint sets $ Y = \{ Y_1, Y_2, ..., Y_n \} $, we have $m(\bigcup_{i=1}^n Y_i) = \sum_{i=1}^n m(Y_i)$.
         Consider the base case where $n = 1$, then $Y = \{ Y_1 \}$.
         The left hand side becomes $m(\bigcup_{i=1}^1 Y_i) = m(Y_1)$ and the right hand side is also $\sum_{i=1}^1 m(Y_i) = m(Y_1)$ so the base case is verified. \parspace
         Now suppose that for some $k \in \N$, $m(\bigcup_{i=1}^k Y_i) = \sum_{i=1}^k m(Y_i)$.
-        Now we prove that the equality holds for $k+1$. 
+        Now we prove that the equality holds for $k+1$.
+        That is, we must show that $m(\bigcup_{i=1}^{k+1} Y_i) = \sum_{i=1}^{k+1} m(Y_i)$.
+        Beginning with the LHS, $m(\bigcup_{i=1}^{k+1} Y_i) = m(Y_{k+1} \cup \bigcup_{i=1}^{k} Y_i)) = m(Y_{k+1}) + m(\bigcup_{i=1}^k Y_i)$ since $Y_{k+1}$ and $\bigcup_{i=1}^{k} Y_i$ are disjoint.
+        Then $m(\bigcup_{i=1}^{k} Y_i) = \sum _{i=1}^{k} m(Y_i)$ by our inductive assumption and we have $m(\bigcup_{i=1}^{k+1} Y_i) = m(Y_{k+1}) + \sum_{i=1}^k m(Y_i) = \sum _{i=1}^{k+1} m(Y_i)$.
+        So the LHS equals the RHS and the proof by induction is complete. \parspace
+        Now we return to the problem at hand.
+        As noted above, $A \cup B = A' \cup B' \cup (A \cap B)$ so we must have $m(A \cup B) = m(A' \cup B' \cup (A \cap B))$.
+        But $A', B',$ and $A \cap B$ are mutually disjoint sets so $m(A' \cup B' \cup (A \cap B)) = m(A') + m(B') + m(A \cap B)$. \parspace
     }
 \end{exercise}
 
