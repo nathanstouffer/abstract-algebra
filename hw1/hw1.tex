@@ -16,52 +16,20 @@
     }
     \proof{
         We take for granted the fact that $m(A \cup B) = m(A) + m(B)$ if $A,B$ are disjoint sets.
+        Additionally, let's eliminate the edge case where one or both of $A,B$ is the empty set.
+        Without loss of generality, let $A = \emptyset$.
+        Then $m(A \cup B) = m(\emptyset \cup B) = m(B)$.
+        Now on the right hand side, $m(A) + m(B) - m(A \cap B) = m(\emptyset) + m(B) - m(\emptyset) \cap B) = 0 + m(B) - m(\emptyset) = m(B) - 0 = m(B)$.
+        From here on, we assume that $A,B$ are nonempty sets. \parspace
         Now let's establish some notation.
-        Let $A' = A \setminus (A \cap B)$ and $B' = B \setminus (A \cap B)$. \parspace
-        We now show a quick proof of the fact that $m(A \cap B)$ is finite.
-        By definition of intersection, $A \cap B \subset A$.
-        But then $A$ cannot contain fewer elements than $A \cap B$, so we must have $m(A) \geq m(A \cap B)$.
-        Then since $A$ is finite, $A \cap B$ is also finite. \parspace
-        We also show that $A' \cap B' = \emptyset$.
-        $A' = A \setminus (A \cap B)$ and $B' = B \setminus (A \cap B)$ so
-        \begin{align*}
-            A' \cap B' &= \{ x \mid x \in A' \text{ and } x \in B' \} \\
-            &= \{ x \mid x \in A \setminus (A \cap B) \text{ and } x \in B \setminus (A \cap B) \} \\
-            &= \{ x \mid (x \in A \text{ and } x \notin A \cap B) \text{ and } (x \in B \text{ and } x \notin A \cap B) \} \\
-            &= \{ x \mid x \in A \text{ and } x \in B \text{ and } x \notin A \cap B \} \\
-            &= \{ x \mid x \in A \cap B \text{ and } x \notin A \cap B \} \\
-            &= \emptyset
-        \end{align*}
-        So $A' \cap B' = \emptyset$. \parspace
-        We now show, via induction, that given $k \in \{ 0, 1, 2, ..., m(A \cap B) \}$, every subset $C \subset A \cap B$ such that $m(C) = k$ satisfies $m(A' \cup B' \cup C) = m(A' \cup C) + m(B' \cup C) - m(C)$.
-        We will denote a subset of $A \cap B$ containing $k$ elements as $C_k$.
-        Consider the base case where $k = 0$.
-        Then there is only one $C_k$ and it must be $C_k = \emptyset$.
-        So we must show that $m(A' \cup B' \cup \emptyset) = m(A' \cup \emptyset) + m(B' \cup \emptyset) - m(\emptyset)$.
-        But then
-        \begin{align*}
-            m(A' \cup B' \cup \emptyset) &= m(A' \cup \emptyset) + m(B' \cup \emptyset) - m(\emptyset) \\
-            m(A' \cup B') &= m(A') + m(B') - 0 \\
-            m(A' \cup B') &= m(A') + m(B')
-        \end{align*}
-        which we already know to be true since $A'$ and $B'$ are disjoint sets.
-        So the base case is proved. \parspace
-        Now suppose that for some $i \in \{ 0, 1, 2, ..., m(A \cap B) - 1 \}$, that we have $m(A' \cup B' \cup C_i) = m(A' \cup C_i) + m(B' \cup C_i) - m(C_i)$ for all $C_i \subset A \cap B$.
-        We must now show that $m(A' \cup B' \cup C_{i+1}) = m(A' \cup C_{i+1}) + m(B' \cup C_{i+1}) - m(C_{i+1})$ for all $C_{i+1} \subset A \cap B$. \parspace
-        For every $i$, we $C_{i+1}$ contains one more element than $C_i$ so we must have $m(C_{i+1}) = m(C_i) + 1 \iff m(C_i) = m(C_{i+1}) - 1$.
-        Furthermore, we constructed $A', B'$ so that for any $k$, $A' \cap C_k = B' \cap C_k = (A' \cup B') \cap C_k = \emptyset$.
-        Then we can use our fact about disjoint sets to say that
-        \begin{align*}
-            m(A' \cup B' \cup C_i) &= m(A' \cup C_i) + m(B' \cup C_i) - m(C_i) \\
-            m(A' \cup B') + m(C_i) &= m(A') + m(C_i) + m(B') + m(C_i) - m(C_i) \\
-            m(A' \cup B') + m(C_{i+1}) - 1 &= m(A') + m(C_{i+1}) - 1 + m(B') + m(C_{i+1}) - 1 - (m(C_{i+1}) - 1) \\
-            m(A' \cup B' \cup C_{i+1}) - 1 &= m(A' \cup C_{i+1}) - 1 + m(B' \cup C_{i+1}) - 1 - m(C_{i+1}) + 1
-        \end{align*}
-        Then the ones cancel, leaving $m(A' \cup B' \cup C_{i+1}) = m(A' \cup C_{i+1}) + m(B' \cup C_{i+1}) - m(C_{i+1})$, which completes the induction. \parspace
-        So now we know that given $k \in \{ 0, 1, 2, ..., m(A \cap B) \}$, every $C_k \subset A \cap B$ must satisfy $m(A' \cup B' \cup C_k) = m(A' \cup C_k) + m(B' \cup C_k) - m(C_k)$.
-        Take $k = m(A \cap B) $, then there is only one $C_k$ and it must be $C_k = A \cap B$.
-        So we must have $ m(A' \cup B' \cup (A \cap B)) = m(A' \cup (A \cap B)) +m (B' \cup (A \cap B)) - m(A \cap B)$.
-        But $A' \cup B' \cup (A \cap B) = A \cup B$, $A' \cup (A \cap B) = A$, and $B' \cup (A \cap B) = B$, so we have $m(A \cup B) = m(A) + m(B) - m(A \cap B)$, which is what needed to be shown.
+        Let $A' = A \setminus (A \cap B)$ and $B' = B \setminus (A \cap B)$.
+        We then have three mutually disjoint sets $A', B',$ and $ A \cap B$.
+        Also note that $A = A' \cup (A \cap B)$ and $B = B' \cup (A \cap B)$ by construction. \parspace
+        We now show, via induction, that for a finite, nonempty collection of mutually disjoint, nonempty sets $ Y = \{ Y_1, Y_2, ..., Y_n \} $, we have $m(\bigcup_{i=1}^n Y_i) = \sum_{i=1}^n m(Y_i)$.
+        Consider the base case where $n = 1$, then $Y = \{ Y_1 \}$.
+        The left hand side becomes $m(\bigcup_{i=1}^1 Y_i) = m(Y_1)$ and the right hand side is also $\sum_{i=1}^1 m(Y_i) = m(Y_1)$ so the base case is verified. \parspace
+        Now suppose that for some $k \in \N$, $m(\bigcup_{i=1}^k Y_i) = \sum_{i=1}^k m(Y_i)$.
+        Now we prove that the equality holds for $k+1$. 
     }
 \end{exercise}
 
@@ -76,7 +44,7 @@
         As an edge case, consider if $A,B$, or both $A$ and $B$ are the empty set.
         In this case $A \times B = \emptyset$ and $m(A \times B) = m(\emptyset) = 0$.
         Also $m(A)m(B) = 0$ because one or both of $m(A), m(B)$ will be 0.
-        Since the statement holds when one or both of $A,B$ is the emptyset, we assume both sets are nonempty for the remainder of the proof. \parspace
+        Since the statement holds when one or both of $A,B$ is the empty set, we assume both sets are nonempty for the remainder of the proof. \parspace
         Now we show that for a singleton $S = \{ s \}$ and a nonempty set $X$, we have $m(S \times X) = m(X)$.
         We show this equality by establishing a bijection between $S \times X$ and $X$.
         Consider $f: S \times X \to X$ defined by $f((s, x)) = x$.
