@@ -38,6 +38,11 @@
         Now we return to the problem at hand.
         As noted above, $A \cup B = A' \cup B' \cup (A \cap B)$ so we must have $m(A \cup B) = m(A' \cup B' \cup (A \cap B))$.
         But $A', B',$ and $A \cap B$ are mutually disjoint sets so $m(A' \cup B' \cup (A \cap B)) = m(A') + m(B') + m(A \cap B)$. \parspace
+        Since $A = A' \cup (A \cap B)$ and $A', A \cap B$ are mutually disjoint, $m(A) = m(A' \cup (A \cap B)) = m(A') + m(A \cap B)$.
+        Then $m(A') = m(A) - m(A \cup B)$.
+        A similar argument shows that $m(B') = m(A) - m(A \cup B)$.
+        Then substituting into $m(A \cup B) = m(A') + m(B') - m(A \cap B)$, we get $m(A \cup B) = m(A) - m(A \cap B) + m(B) - m(A \cap B) + m(A \cap B) = m(A) + m(B) - m(A \cap B)$.
+        So for finite sets $A,B$ it is the case that $m(A \cup B) = m(A) + m(B) - m(A \cap B)$.
     }
 \end{exercise}
 
@@ -53,28 +58,28 @@
         In this case $A \times B = \emptyset$ and $m(A \times B) = m(\emptyset) = 0$.
         Also $m(A)m(B) = 0$ because one or both of $m(A), m(B)$ will be 0.
         Since the statement holds when one or both of $A,B$ is the empty set, we assume both sets are nonempty for the remainder of the proof. \parspace
-        Now we show that for a singleton $S = \{ s \}$ and a nonempty set $X$, we have $m(S \times X) = m(X)$.
+        By definition, $A \times B = \{ (a,b) \mid a \in A, b \in B \}$.
+        Since $A$ is finite, let $m(A) = n \in \N$ and we can enumerate its elements $A = \{ a_1, a_2, ..., a_n \}$.
+        Now let $A_k = \{ a_k \} \times B $.
+        Then $\bigcup_{i=1}^n A_i = A \times B$.
+        Further, the sets $A_1, A_2, ..., A_n$ are mutually disjoint because the pair $(a_k,b)$ can only be a member of the set $A_k$.
+        Then, using the inductive result from the previous problem, $m(A \times B) = m(\bigcup _{i=1}^n A_i) = \sum _{i=1}^n m(A_i)$. \parspace
+        Now we show that for any singleton $S = \{ s \}$ and a nonempty set $X$, we have $m(S \times X) = m(X)$.
         We show this equality by establishing a bijection between $S \times X$ and $X$.
         Consider $f: S \times X \to X$ defined by $f((s, x)) = x$.
         To show that $f$ is a bijection, we must show it is surjective and injective.
         The map $f$ is surjective if every element of $X$ is the image of some element of $S \times X $ under $f$.
-        For any $x' \in X$, just choose $(s, x') \in S \times X$, then $f((s, x')) = x'$.
-        So $f$ is surjective, but what about injective?
+        For any $x' \in X$, just choose $(s, x') \in S \times X$, then the image of $(s, x')$ under $f$ is $x'$, as desired.
+        Is $f$ injective?
         We can show $f$ is injective by proving that $f((s, x_1)) = f((s, x_2))$ implies $(s, x_1) = (s, x_2)$.
-        Suppose we have $f((s, x_1)) = f((s, x_2))$, then it must also be true that $x_1 = x_2$.
+        Suppose we have $f((s, x_1)) = f((s, x_2))$, evaluating $f$ gives us $x_1 = x_2$.
         Since $s = s$ and $x_1 = x_2$, must have $(s, x_1) = (s, x_2)$.
         Therefore, $f$ is injective.
-        Since $f$ is both injective and surjective, it is a bijection and $m(S \times X) = m(X)$. \parspace
-        We now show, via induction, that for a finite, nonempty collection of mutually disjoint sets $ Y = \{ Y_1, Y_2, ..., Y_n \} $, we have $m(\bigcup_{i=1}^n Y_i) = \sum_{i=1}^n m(Y_i)$.
-        Consider the base case where $n = 1$, then $Y = \{ Y_1 \}$.
-        The left handside becomes $m(\bigcup_{i=1}^1 Y_i) = m(Y_1)$ and the right hand side is $\sum_{i=1}^1 m(Y_i) = m(Y_1)$ so the base case is verified. \parspace
-        Now suppose that for some $k \in \N$, $m(\bigcup_{i=1}^k Y_i) = \sum_{i=1}^k m(Y_i)$.
-        Now we prove that the equality holds for $k+1$. \parspace
-        % prove the induction
-        We now claim that $A \times B$ is such a finite union of sets and that those sets are mutually disjoint. \parspace
-        % show set equality
-        % show mutually disjoint
-        % apply induction and simplify expression
+        Since $f: S \times X \to X$ is both injective and surjective, it is a bijection and $m(S \times X) = m(X)$. \parspace
+        Recall that $A_i = \{ a_i \} \times B$.
+        Since $\{ a_i \}$ is a singleton, we can use the result just shown and say that $m(A_i) = m(B)$.
+        So now we have $m(A \times B) = \sum _{i=1}^n m(B) = n * m(B)$.
+        But $n = m(A)$ so we really just showed that $m(A \times B) = m(A)m(B)$, which was the goal.
     }
 \end{exercise}
 
