@@ -104,6 +104,14 @@
         Can you find a positive integer $m$ such that $f^m = i$ for all $f \in S_4$?
     }
     \proof{
+        In this proof, we verify that $m = 4! = 24$ satisfies $f^m = f^{4!} = i$ for all $f \in S_4$.
+        Let $f$ be any map in $S_4$.
+        We already know, from class lecture three, that any $f \in S_n$ can be uniquely decomposed into disjoint cycles.
+        Further, the minimum cycle length is 1 and the maximum cycle length is $n$ (since there are only $n$ elements to permute).
+        Since $n = 4$ in our case, $f$ can be decomposed into cycles and every cycle in $f$ must have length 1, 2, 3, or 4.
+        Then, the image of $s_0$ (an element in a cycle of length $l$) under $f^{4!}$ is $f^{4!}(s_0) = (f^l(s_0))^{4!/l} = (i(s_0))^{4!/l} = i(s_0) = s_0$ for cycles of lengths 1, 2, 3, and 4.
+        Since these are the only cycle lengths that can occur, $f^{4!}$ acts identically to $i$, which implies $f^{4!} = i$.
+        Then since our choice of $f$ was arbitrary, $m = 4!$ satisifes $f^m = i$ for every $f \in S_4$.
     }
 \end{exercise}
 
@@ -114,6 +122,18 @@
         Show that there is a positive integer $t$ such that $f^t = i$ for all $f \in S_n$.
     }
     \proof{
+        For this question, we do not give a value for $t$, we only show its existence.
+        Note that $| S_n | = n! < + \infty$.
+        Then enumerate the elements of $S_n = \{ f_1, f_2, ... , f_{n!-1}, f_{n!} \}$.
+        We know from class lecture three that for every $f_k \in S_n$, there exists some $p_k \in \N$ such that $f_k^{p_k} = i$. \parspace
+        % not sure if I need this part. If I do, finish it (it's not quite complete)
+        We show for any map $f:S \to S$ and natural numbers $r,s$ we have the equality $f^{rs} = (f^r)^s$.
+        On the LHS, we have $f^{rs} = f^{\sum _{i=1}^s r} = f^r f^r \triplecdot f^r$ $s$ times. \parspace
+        Then take $t = \prod _{k=1}^{n!} p_k $.
+        For any $f_k \in S_4$, we have $f_k^t = (f_k^{p_k})^{t/p_k}$.
+        Also note that $t/p_k$ is a natural number because $p_k$ is a factor in the construction of $t$.
+        But we already know $f_k^{p_k} = i$, so we really have $f_k^t = i^{t/p_k} = i$.
+        The identity map repeated any number of times is still the identity map, so we have $f_k^t = i$ as desired.
     }
 \end{exercise}
 
