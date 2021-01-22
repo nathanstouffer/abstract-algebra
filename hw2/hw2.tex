@@ -13,7 +13,14 @@
         If $G$ is a group in which $a^2 = e$ for all $a \in G$, show that $G$ is abelian.
     }
     \proof{
-
+        First note that $a^2 = e$ for all $a \in G$ implies that for every $a \in G$ $a^{-1} = a$ (for $a^{-1}$ is the element that satisifes $aa^{-1} = e$).
+        Now pick any $x,y \in G$.
+        Since $G$ is a group, we have $(xy)(xy)^{-1} = e$ and $(xy)^{-1} = y^{-1}x^{-1}$.
+        Our assumption that $a^2 = e$ for all $a \in G$ allows us to say that $y^{-1}x^{-1} = yx$.
+        Additionally, that same assumption tells us that $(xy)^{-1} = xy$.
+        This gives the chain of equalities
+        $$ xy = (xy)^{-1} = y^{-1}x^{-1} = yx $$
+        Since $x,y$ were arbitrary members of $G$, we have just shown that $G$ is abelian.
     }
 \end{exercise}
 
@@ -24,7 +31,16 @@
         If $G$ is a finite group of even order, show that there must be an element $a \neq e$ such that $a = a^{-1}$.
     }
     \proof{
-
+        Suppose not, that is, suppose we have a finite group $G$ of even order such that $a = e$ is the only element to satisfy $a = a^{-1}$ for any $a \in G$.
+        Let's define a map $f: G \to G$ which takes $x \in G$ to $x^{-1} = y \in G$.
+        The map $f$ is well defined because each element in a group has an inverse.
+        Note that $f$ must be a bijection ($f$ is 1-1 because inverses are unique in a group and $f$ is onto because each element in a group is an inverse).
+        Further, $ff(x) = f(f(x)) = x$ because $f(x)x = yx = e$. \parspace
+        Since $ff(x) = x$ for all $x \in G$, every element in $G$ is part of a 2-cycle or a 1-cycle under $f$.
+        We assumed that $e$ is the only element to be its own inverse, which is equivalent to saying $e = f(e)$ is the only 1-cycle.
+        Therefore, the remaining $|G|-1$ elements must be part of 2-cycles.
+        But $|G|-1$ is odd so it cannot be broken into disjoint pairs.
+        So we have reached a contradiction and it must be the case that some $a \in G$ ($a \neq e$) satisfies $a = a^{-1}$.
     }
 \end{exercise}
 
