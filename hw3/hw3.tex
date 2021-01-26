@@ -59,7 +59,14 @@
         Prove that a cyclic group is abelian.
     }
     \proof{
-
+        Let's first introduce the definition of a cyclic group.
+        A group $G$ is cyclic if there exists some $a \in G$ such every $x \in G$ is a power of $a$ ($x = a^j$ for some $j \in \Z$).
+        Additionally, a group is abelian if $ab = ba$ for all $a,b \in G$. \parspace
+        Suppose we have some cyclic group $G$.
+        Since $G$ is cyclic, there is some $g \in G$ such that every $x \in G$ is of the form $x = g^j$ for some $j \in \Z$.
+        Now take any $a,b \in G$ and note that $a = g^i$ and $b = g^k$ for some $i,k \in Z$.
+        Then $ab = g^i g^k = g^{i+k} = g^{k+i} = g^k g^i = ba$ as desired.
+        Therefore, every cyclic group is abelian.
     }
 \end{exercise}
 
