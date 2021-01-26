@@ -88,7 +88,79 @@
         \right\} $$
     }
     \proof{
-
+        First we note that $\H _3 (\R)$ is a subset of $\GL _3 (\R)$ since every matrix $\H _3 (\R)$ has rank 3.
+        Then since $\H _3 (\R) \subset \GL _3 (\R)$ we automatically inherit the associativity of matrix multiplication.
+        So only two conditions remain for $\H _3 (\R)$ to be a subgroup: closure and the existence of an inverse in $\H _3 (\R)$.
+        The previous two conditions imply $I_3 \in \H _3 (\R)$ but this can also be verified by inspection. \parspace
+        Let's first prove closure.
+        Pick $A, A' \in \H _3 (\R)$ and compute
+        $$ A A' =
+        \begin{bmatrix}
+            1 & x & z \\
+            0 & 1 & y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & x' & z' \\
+            0 & 1 & y' \\
+            0 & 0 & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & x'+x & z'+xy'+z \\
+            0 & 1 & y'+y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & \bar{x} & \bar{z} \\
+            0 & 1 & \bar{y} \\
+            0 & 0 & 1
+        \end{bmatrix}
+        \in \H _3 (\R)
+        $$
+        where $\bar{x}, \bar{y}, \bar{z} \in \R$ by the closure of $\R$ under addition and multiplication.
+        So $\H _3 (\R)$ is closed under matrix multiplication.
+        We must now show that for every $A \in \H _3 (\R)$ we also have $B \in \H _3 (\R)$ such that $AB = BA = I_3$.
+        For $A$, choose
+        $$ B =
+        \begin{bmatrix}
+            1 & -x & xy-z \\
+            0 & 1 & -y \\
+            0 & 0 & 1
+        \end{bmatrix}$$
+        Certainly $B$ is in the set $\H _3 (\R)$ and we have
+        $$AB =
+        \begin{bmatrix}
+            1 & x & z \\
+            0 & 1 & y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & -x & xy-z \\
+            0 & 1 & -y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -x & xy-z \\
+            0 & 1 & -y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & x & z \\
+            0 & 1 & y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        = BA
+        $$
+        So we have checked that $\H _3 (\R)$ is closed under matrix multiplication and every element has an inverse in the subset so $\H _3 (\R)$ is a subgroup of $\GL _3 (\R)$.
     }
 
 % hw problem 5 -----------------------------------------------------------------
