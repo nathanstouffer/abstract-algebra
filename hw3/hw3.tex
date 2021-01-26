@@ -18,7 +18,25 @@
         Prove that $G$ must be a group under $\ast$.
     }
     \proof{
-
+        To prove that $(G, \ast)$ is a group, we must show that $G$ contains an identity element and an inverse for each element.
+        Let's begin with the identity element.
+        We must find an element $e \in G$ such that $x \ast e = e \ast x = x$ for all $x \in G$.
+        Let $|G| = n < + \infty$ and fix an element $g \in G$ and consider $g, g^2, g^3, ..., g^{n+1}$.
+        Since $G$ is closed under $\ast$, every $g^k$ is an element of $G$, yet $G$ has only $n$ elements so we must at least have $g^i = g^j$ for some $1 \leq i < j \leq n+1$. \parspace
+        Now let $l = j-i > 0$ (which means $j = l+i = i+l$) and we can say that $g^j = g^{l+i} = g^l \ast g^i$ and $g^j = g^{i+l} = g^i \ast g^l$.
+        But then $g^j = g^i$ so we have $g^i = g^i \ast g^l = g^l \ast g^i$.
+        Letting $g^i = \bar{g}$ and $g^l = \bar{e}$ (both elements of $G$ by closure under $\ast$) gives us $\bar{g} = \bar{g} \ast \bar{e} = \bar{e} \ast \bar{g}$ for the specific element $\bar{g} \in G$. \parspace
+        We now show that $\bar{e}$ is an identity element for every element of $G$.
+        Fix any $x \in G$, then $\bar{g} \ast x = \bar{g} \ast \bar{e} \ast x$ since $\bar{g} = \bar{g} \ast \bar{e}$.
+        But then property 3 says that $x = \bar{e} \ast x$.
+        Further, $x \ast \bar{g} = x \ast \bar{e} \ast \bar{g}$ since $\bar{e} \ast \bar{g} = \bar{g}$ and then property 4 allows us to say that $x \ast \bar{e} = x$.
+        So we have just shown that $x \ast \bar{e} = \bar{e} \ast x = x$ for an arbitrary $x \in G$.
+        In other words, $\bar{e}$ is an identity element for $G$. \parspace
+        Now we must show an inverse element exists for every element of $G$: that there exists some element $g' \in G$ such that $g \ast g' = g' \ast g = \bar{e}$.
+        To do this, we take $g$ and $g^l = \bar{e}$ as before.
+        Pick $g' = g^{l-1} \in G$ then $g \ast g' = g \ast g^{l-1} = g^{1+l-1} = g^{l+1-1} = g^l = \bar{e}$ and $g' \ast g = g^{l-1} \ast g = g^{l-1+1} = g^l = \bar{e}$ as desired.
+        Since we chose $g$ arbirarily, we have just shown every element has an inverse in $G$. \parspace
+        So we have showed that an identity exists in $G$ and each element has an inverse so $G$ satisfies the conditions of a group.
     }
 \end{exercise}
 
