@@ -22,7 +22,7 @@
         Let's begin with the identity element.
         We must find an element $e \in G$ such that $x \ast e = e \ast x = x$ for all $x \in G$.
         Let $|G| = n < + \infty$ and fix an element $g \in G$ and consider $g, g^2, g^3, ..., g^{n+1}$.
-        Since $G$ is closed under $\ast$, every $g^k$ is an element of $G$, yet $G$ has only $n$ elements so we must at least have $g^i = g^j$ for some $1 \leq i < j \leq n+1$. \parspace
+        Since $G$ is closed under $\ast$, every $g^k$ is an element of $G$, yet $G$ has only $n$ elements so we must have $g^i = g^j$ for some $1 \leq i < j \leq n+1$. \parspace
         Now let $l = j-i > 0$ (which means $j = l+i = i+l$) and we can say that $g^j = g^{l+i} = g^l \ast g^i$ and $g^j = g^{i+l} = g^i \ast g^l$.
         But then $g^j = g^i$ so we have $g^i = g^i \ast g^l = g^l \ast g^i$.
         Letting $g^i = \bar{g}$ and $g^l = \bar{e}$ (both elements of $G$ by closure under $\ast$) gives us $\bar{g} = \bar{g} \ast \bar{e} = \bar{e} \ast \bar{g}$ for the specific element $\bar{g} \in G$. \parspace
@@ -88,10 +88,10 @@
         \right\} $$
     }
     \proof{
-        First we note that $\H _3 (\R)$ is a subset of $\GL _3 (\R)$ since every matrix $\H _3 (\R)$ has rank 3.
+        First we note that $\H _3 (\R)$ is a (nonempty) subset of $\GL _3 (\R)$ since $I_3 \in \H _3 (\R)$ and every matrix in $\H _3 (\R)$ has rank 3.
         Then since $\H _3 (\R) \subset \GL _3 (\R)$ we automatically inherit the associativity of matrix multiplication.
         So only two conditions remain for $\H _3 (\R)$ to be a subgroup: closure and the existence of an inverse in $\H _3 (\R)$.
-        The previous two conditions imply $I_3 \in \H _3 (\R)$ but this can also be verified by inspection. \parspace
+        The previous two conditions imply $I_3 \in \H _3 (\R)$ but this was also verified by inspection. \parspace
         Let's first prove closure.
         Pick $A, A' \in \H _3 (\R)$ and compute
         $$ A A' =
