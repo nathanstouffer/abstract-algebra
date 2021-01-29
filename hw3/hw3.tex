@@ -70,7 +70,7 @@
         \newpage
         We now show that we have listed all subgroups of $S_3$.
         We can deduce this from the requirement that a subgroup requires closure.
-        Of the remaining combintations of elements we could choose to accompany $id$ in a subgroup, all of them require including the whole group.
+        Of the remaining combinations of elements we could choose to accompany $id$ in a subgroup, all of them require including the whole group.
         This is shown in Figures \ref{fig:closure2} and \ref{fig:closure3}.
         As an example pick elements $(1 2), (2 3)$ to accompany $id$.
         To satisfy closure, we must include $(1 2 3)$ (Figure \ref{fig:closure2}) but then we must include $(1 3 2)$ (Figure \ref{fig:closure1}) and then we must include $(1 3)$ (Figure \ref{fig:closure3}) which is the entire set.
@@ -215,7 +215,30 @@
         \indent a subgroup of order 8
     }
     \proof{
+        For the purposes of this problem, we label the initial faces of the cube as you would a die (with side one facing us and side 6 opposite and so on).
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/cubegroups}
+            \caption{Subgroups of a cube}
+            \label{fig:cubegroups}
+        \end{figure}
 
+        \noindent
+        {\bf Order 4:}
+        We can make subgroup of order 4 by keeping all rigid symmetries of $Q$ that keep us looking at the same face.
+        In Figure \ref{fig:cubegroups}(a) we shaded in this face.
+        The subgroup is any symmetric rotation about the x axis, of which there are 4. \parspace
+        {\bf Order 12:} I found and order 12 subgroup to be the most difficult to find.
+        Here is what I have landed on: any rigid symmetry that preserves $A$'s position in Figure \ref{fig:cubegroups}(b) and a rotation by $\pi$ about the z axis.
+        The next part says that preserving $A$ is a group of order 3 and then we get four distinct subgroups from the points that could end up in $A$'s location (these are $A$ and each of the points across the diagonal of a {\it square} touching $A$).
+        Then the subgroup is of order 12. \parspace
+        {\bf Order 3:} A subgroup of order 3 can be found by requiring that the vertex labed $A$ in Figure \ref{fig:cubegroups}(c) stays in the same location.
+        This allows us three actions, synonomous with spinning the cube about $A$ and the point diagonally through the cube from $A$. \parspace
+        {\bf Order 6:} An order 6 subgroup is pretty similar to the order 3 subgroup we just discussed.
+        Instead of requiring that $A$ stays in the same location, we say that $A$ and $B$ in Figure \ref{fig:cubegroups}(d) must remain on the diagonal they begin on.
+        This gives the three actions when $A$ is stationary and another three actions when we flip $A$ and $B$ (which can be done by a rotation by $\pi$ about z axis and then a rotation by $\pi /2$ about x axis). \parspace
+        {\bf Order 8:} For a subgroup of order 8, we require that we look at one of the two shaded faces shown in Figure \ref{fig:cubegroups}(e).
+        This gives us four actions while looking at face 1 and another four while looking at face 6. \parspace
     }
 
 \end{document}
