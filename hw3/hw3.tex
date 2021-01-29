@@ -48,7 +48,45 @@
         Find all the subgroups of $S_3$.
     }
     \proof{
+        First note that we always have the trivial subgroups $\{ id \}$ and $S_3$.
+        We must now find the remaining subgroups of $S_3$.
+        Note that $|S_3| = 3! = 6$ and for any subgroup $H \leq S_3$, we must have $id \in H$.
+        This leaves us only 5 options to include in a subgroup $H$.
+        If we choose one of the elements $(1 2), (2 3), (1 3)$ to accompany $id$ then we have a subgroup for each of those elements is it's own inverse.
+        So in addition to the trivial subgroups we also have $\{ id, (1 2) \}, \{ id, (2 3) \}, \{ id, (1 3) \}$. \parspace
+        Note that the remaining elements we can choose to accompany $id$ are $(1 2 3) = (3 1 2) = (2 3 1)$ and $(1 3 2) = (2 1 3) = (3 2 1)$.
+        Now suppose we choose one of $(1 2 3), (1 3 2)$ to accompany $id$.
+        Then Figure \ref{fig:closure1} shows that the other must also be in the subgroup to satisfy closure.
+        Also each of them applied 3 times to the themselves so we have inverses as well.
+        Therefore $\{ id, (1 2 3), (1 3 2) \}$ constitutes a subgroup as well.
 
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/closure1}
+            \caption{Necessary closure for 3 cycles}
+            \label{fig:closure1}
+        \end{figure}
+
+        \newpage
+        We now show that we have listed all subgroups of $S_3$.
+        We can deduce this from the requirement that a subgroup requires closure.
+        Of the remaining combintations of elements we could choose to accompany $id$ in a subgroup, all of them require including the whole group.
+        This is shown in Figures \ref{fig:closure2} and \ref{fig:closure3}.
+        As an example pick elements $(1 2), (2 3)$ to accompany $id$.
+        To satisfy closure, we must include $(1 2 3)$ (Figure \ref{fig:closure2}) but then we must include $(1 3 2)$ (Figure \ref{fig:closure1}) and then we must include $(1 3)$ (Figure \ref{fig:closure3}) which is the entire set.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{img/closure2}
+            \caption{Necessary closures}
+            \label{fig:closure2}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{img/closure3}
+            \caption{Necessary closures}
+            \label{fig:closure3}
+        \end{figure}
     }
 \end{exercise}
 
