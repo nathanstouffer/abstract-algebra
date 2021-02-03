@@ -13,7 +13,25 @@
         If $A, B$ are subgroups of $G$ such that $b^{-1} A b \subset A$ for all $b \in B$, show that $AB$ is a subgroup of $G$.
     }
     \proof{
-
+        Our task is to show that $AB \leq G$.
+        Note that $AB := \{ ab \mid a \in A, b \in B \}$.
+        We are also given the conditions that $A,B \leq G$ and $b^{-1} A b = \{ b^{-1} a b \mid a \in A \} \subset A$ for all $b \in B$.
+        We get associativity for free and we can quickly deduce that $e \in AB$ since $e \in A, B$ and $e = ee \in AB$. \parspace
+        We now show that $AB$ is closed under the group operation in $G$.
+        Pick any $x, y \in AB$ then $x = a_1 b_1$ and $y = a_2 b_2$ for some $a_1, a_2 \in A$ and $b_1, b_2 \in B$.
+        Then $xy = a_1 b_1 a_2 b_2 = b_1 b_1^{-1} a_1 b_1 a_2 b_2$ where the existence of $b_1^{-1}$ is guaranteed since $G$ is a group.
+        But then $b_1^{-1} a_1 b_1 \in A$ so let $b_1^{-1} a_1 b_1 = a_3 \in A$.
+        Then we have $xy = b_1 a_3 a_2 b_2$.
+        Setting $a_4 = a_3 a_2$ ($a_4 \in A$ by closedness), we get $xy = b_1 a_4 b_2$.
+        Again since $G$ is a group, we can say that $ b_1 a_4 b_2 = b_1 a_4 b_1^{-1} b_1 b_2 = (b_1^{-1})^{-1} a_4 b_1^{-1} b_1 b_2$.
+        Then let $a = (b_1^{-1})^{-1} a_4 b_1^{-1}$ (a member of $A$ by our assumed property) and $b = b_1 b_2$ (a member of $B$ by closedness) and then we have $xy = ab$ where $a \in A, b \in B$.
+        Thus $cd \in AB$. \parspace
+        As the final step torwards proving $AB \leq G$, we must verify that every element has an inverse in $AB$.
+        Fix any $x = ab \in AB$, we wonder if $x^{-1} = (ab)^{-1} \in AB$.
+        Certainly $(ab)^{-1} \in G $ and $(ab)^{-1} = b^{-1} a^{-1} = b^{-1} a^{-1} b b^{-1}$ by properties of $G$.
+        But then we know $b^{-1} a^{-1} b \in A$ (since $a^{-1}$ is an element of $A$ so the property applies).
+        Letting $b^{-1} a^{-1} b = a' \in A$ we have $x^{-1} = a' b^{-1}$ which must be a member of $AB$ since $a' \in A$ and $b^{-1} \in B$ (since $B$ is subgroup).
+        Therefore, $AB$ is a subgroup of $G$.
     }
 \end{exercise}
 
@@ -25,6 +43,26 @@
     }
     \proof{
 
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{img/123inv}
+            \caption{Necessary closure for 3 cycles}
+            \label{fig:123inv}
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.95\textwidth]{img/123eq}
+            \caption{Necessary closure for 3 cycles}
+            \label{fig:123eq}
+        \end{figure}
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.85\textwidth]{img/12eq}
+            \caption{Necessary closure for 3 cycles}
+            \label{fig:12eq}
+        \end{figure}
     }
 \end{exercise}
 
