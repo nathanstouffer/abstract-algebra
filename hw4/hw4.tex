@@ -42,27 +42,52 @@
         Find all the distinct conjugacy classes of $S_3$.
     }
     \proof{
+        Our goal is to find all the distinct conjugacy classes of $S_3$.
+        Recall that $S_3 = \{ id, (12), (13), (23), (123), (321) \}$ and note that $(123)^{-1} = (321)$ (see Figure \ref{fig:123inv} for proof).
+        Given $f,g \in S_3$ we have $f \sim g$ ($f$ and $g$ are conjugate) if there exists some $h \in G$ such that $g = h^{-1} f h$.
+        The textbook also notes that $\sim$ is an equivalence relation. \parspace
 
         \begin{figure}[h]
             \centering
-            \includegraphics[width=0.75\textwidth]{img/123inv}
-            \caption{Necessary closure for 3 cycles}
+            \includegraphics[width=0.95\textwidth]{img/123inv}
+            \caption{Showing $(123)^{-1} = (321)$}
             \label{fig:123inv}
         \end{figure}
+
+        First, we show that $\{ id \}$ is a conjugacy class.
+        Since $\sim$ is an equivalence relation, we necessarily have $id \sim id$.
+        Now pick $f$ a member of the conjugacy class of $id$.
+        Then $id = g^{-1} f g$ for some $g \in S_3$.
+        Left multiplying by $g$ and right multiplying by $g^{-1}$, we obtain $f = id$, therefore the conjugacy class of $id$ is the singleton $\{ id \}$. \parspace
+        With the definition for $\sim$, certainly $(123)$ and $(321)$ are in the same conjugacy class (Figure \ref{fig:123eq} and the fact that $\sim$ is symmetric).
+        Additionally, the maps $(12), (13),$ and $(23)$ are in the same conjugacy class (Figure \ref{fig:12eq} and the symmetric/transitive properties of equivalence relations).
 
         \begin{figure}[h]
             \centering
             \includegraphics[width=0.95\textwidth]{img/123eq}
-            \caption{Necessary closure for 3 cycles}
+            \caption{Showing $(123) \sim (321)$}
             \label{fig:123eq}
         \end{figure}
 
         \begin{figure}[h]
             \centering
             \includegraphics[width=0.85\textwidth]{img/12eq}
-            \caption{Necessary closure for 3 cycles}
+            \caption{Showing $(12) \sim (13) \sim (23)$}
             \label{fig:12eq}
         \end{figure}
+
+        \newpage
+        We now show that the conjugacy classes of $S_3$ are $A_1 = \{ id \}$, $A_2 = \{ (12), (13), (23) \}$, and $A_3 = \{ (123), (321) \}$.
+        We already know $\{ id \}$ to be its own conjugacy class.
+        So we only need show that $A_2, A_3$ are not part of the same conjugacy class.
+        Since $\sim$ is an equivalence relation, it suffices to show that a single pair of elements from $A_2, A_3$ are not in the same conjugacy class.
+        Can we show $(12)$ and $(123)$ are not in the same conjugacy class?
+        Suppose $(12) \sim (123)$, then there exists $h \in G$ such that $(12) = h^{-1} (123) h$.
+        Then it must also be true that $(12)^3 = (h^{-1} (123) h)^3$.
+        Simplifying, $(12)^3 = (12)$ and $(h^{-1} (123) h)^3 = h^{-1} (123)^3 h = h^{-1} id h = h^{-1} h = id$.
+        But $(12) \neq id$ so we have reached a contradiction and the elements $(12)$ and $(123)$ cannot be part of the same conjugacy class.
+        Then their conjugacy classes must be distinct (since $\sim$ is an equivalence relation).
+        Therefore the conjugacy classes o $S_3$ are $A_1 = \{ id \}$, $A_2 = \{ (12), (13), (23) \}$, and $A_3 = \{ (123), (321) \}$.
     }
 \end{exercise}
 
