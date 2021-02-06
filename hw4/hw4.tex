@@ -99,6 +99,15 @@
         Find the conjugacy classes in $G$.
     }
     \proof{
+        I claim the conjugacy classes of $D_8$ are $\{ id \}, \{ r, r^3 \}, \{ r^2 \}, \{ f , fr^2 \}, $ and $\{ fr, fr^3 \}$.
+        Certainly $\{ id \}$ is an equivalence class since $id \in [id]$ and any other element $a \in [id]$ satisfies $id = x^{-1} a x$ for some $x \in D_8$.
+        But then left multiplying by $x$ and right multiplying by $x^{-1}$ gives $a = id$. \parspace
+        We now show that each of the above sets certainly contain elements in the same equivalence class.
+        We know $fr^3 \sim fr$ because $f fr f = rf = fr^{-1} = fr^3$.
+        Additionally, $f \sim fr^2$ since $r^3 fr^2 r = f$.
+        And finally, $r^3 \sim r$ since $f r f = f f r^{-1} = r^3$.
+        I tried to come up with a slick proof for why no other elements are related to each other but I couldn't find one.
+        I leave this problem saying the since $D_8$ is finite, the sets I have presented can verified to be equivalence classes by running through all $x \in D_8$.
     }
 \end{exercise}
 
