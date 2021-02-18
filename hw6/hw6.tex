@@ -41,7 +41,29 @@
         \indent {\bf (b)} $\ker \psi = Z(G)$ the center of $G$.
     }
     \proof{
-
+        \parspace {\bf (a)} We wish to show that $\psi$ is a homomorphism.
+        That is, we must show that $\psi (ab) = \psi (a) \psi (b)$ for all $a,b \in G$.
+        On the LHS, we have $\psi (ab) = \sigma _{ab}$ and on the RHS we have $\psi (a) \psi (b) = \sigma _a \circ \sigma _b$.
+        For the LHS to equal the RHS we must have $\sigma _{ab} (g) = (\sigma _a \circ \sigma _b) (g)$ for all $g \in G$.
+        Fix any $g \in G$, then $\sigma _{ab} (g) = (ab) g (ab)^{-1} = ab g b^{-1} a^{-1} = \sigma _a (b g b^{-1}) = \sigma _a (\sigma _b (g)) = (\sigma _a \circ \sigma _b) (g)$.
+        Since $g$ was arbitrary in $G$, we have shown the equality between maps $\sigma _{ab} = \sigma _a \circ \sigma _b$ which means $\psi$ is a homomorphism. \parspace
+        {\bf (b)} Now we want to show that $\ker \psi = Z(G)$.
+        Let's write their definitions.
+        We know $\ker \psi := \{ a \in G \mid \psi (a) = id \in A(G) \} \subset G$ and that $Z(G) := \{ a \in G \mid ag = ga \text{ for all } g \in G \}$.
+        We will show equality by showing inclusion in both directions.
+        Going to the left, pick any $a \in \ker \psi$, then $\psi (a) = id \in A(G)$.
+        Also, by definition, $\psi (a) = \sigma _a$ this gives the equality of maps $\sigma _a = id$.
+        Then we have $\sigma _a (g) = id(g) = g$ for all $g \in G$.
+        By definition, $\sigma _a (g) = a g a^{-1}$ so we also have $a g a^{-1} = g$ for all $g \in G$.
+        Left multiplying by $a$ gives $ag = ga$ for all $g$, which is exactly the condition for membership in $Z(G)$.
+        Therefore, $a \in Z(G)$ and since $a$ was arbitray in $\ker \psi$ we have the inclusion $\ker \psi \subset Z(G)$. \parspace
+        We now show the other inclusion $Z(G) \subset \ker \psi$.
+        Fix any $b \in Z(G)$ then $bg = gb$ for every $b \in G$.
+        Left multplying by $b^{-1}$ gives the equality $b g b^{-1} = g$ for all $b \in G$.
+        The LHS is exactly $\sigma _b (g)$ so we have just shown that $\sigma _b (g) = g$ for every $b$.
+        But then $\sigma _b$ performs the same actions as the identity map $id \in A(G)$ so we have $\sigma _b = id$.
+        Further, $\sigma _b = \psi (b)$ so we also have $\psi (b) = id \in A(G)$, which is the condition for membership in $\ker \psi$.
+        By arbitrariness of $b$, we have shown $Z(G) \subset \ker \psi$.
     }
 \end{exercise}
 
@@ -53,7 +75,38 @@
         Find an epimorphism the Heisenberg group $\Heisen$ onto $\R ^2$.
     }
     \proof{
-
+        Consider the function $\varphi : \Heisen \to \R ^2$ which maps a matrix
+        $A = \begin{bmatrix} 1 & x & z \\ 0 & 1 & y \\ 0 & 0 & 1 \end{bmatrix} \in \Heisen$
+        to the point $(x, y) \in \R ^2$.
+        For $\varphi$ to be an epimorphism, we must verify that $\varphi$ is both surjective and a homomorphism.
+        For $\varphi$ to be surjective, for every point in $\R ^2$ we must have a matrix in $\Heisen$ such that $\varphi$ maps the matrix to the point.
+        For the point $(a, b) \in \R ^2$, choose the matrix
+        $A = \begin{bmatrix} 1 & a & 0 \\ 0 & 1 & b \\ 0 & 0 & 1 \end{bmatrix}$.
+        Then $\varphi (A) = (a, b)$ as desired.
+        Now let's verify that $\varphi$ is a homomorphism.
+        We must check that $\varphi (A A') = \varphi (A) \varphi (A')$ for all $A, A' \in \Heisen$.
+        $$
+        A A' =
+        \begin{bmatrix}
+            1 & x & z \\
+            0 & 1 & y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & x' & z' \\
+            0 & 1 & y' \\
+            0 & 0 & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & x'+x & z'+y'x+z \\
+            0 & 1 & y'+y \\
+            0 & 0 & 1
+        \end{bmatrix}
+        $$
+        On the LHS, $\varphi (A A') = (x' + x, y' + x)$.
+        Then on the RHS, we have $\varphi (A) \varphi (A') = (x, y) + (x', y') = (x+x', y+y') = (x'+x, y'+y)$.
+        So the LHS equals the RHS and $\varphi$ is a homomorphism.
     }
 
 % hw problem 5 -----------------------------------------------------------------
