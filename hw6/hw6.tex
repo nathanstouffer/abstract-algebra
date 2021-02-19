@@ -117,7 +117,42 @@
         Show that the group $Sym (R)$ where $R$ is a rectangle that is not a square is isomorphic to the product $\Z _2 \times \Z _2$.
     }
     \proof{
+        We know the elements of $\Z _2$ so we know the elements of $\Z _2 \times \Z _2$ and the group opertion it is endowed with.
+        We must explore the group $Sym (R)$.
+        Certainly $Sym (R) \leq D_8$ (where $S$ is a square) for every symmetry of a rectangle is also a symmetry of a square.
+        Figure \ref{fig:sym} depicts the axis of symmetries of a rectangle $R$.
+        Together with the identity transformation, there are four.
+        Since $Sym (R) \leq D_8$ let's give the four transformations the same names that we call them in $D_8$.
+        Namely, $Sym (R) := \{ e, r^2, f, fr^2 \}$.
 
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.5\textwidth]{img/sym}
+            \caption{Symmetries of a rectangle $R$}
+            \label{fig:sym}
+        \end{figure}
+
+        Figure \ref{fig:iso} defines a map $\varphi: Sym (R) \to \Z _2 \times \Z _2$.
+        Just from the figure, we know that $\varphi$ is a bijection.
+
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.4\textwidth]{img/iso}
+            \caption{Isomorphism between $Sym (R)$ and $\Z _2 \times \Z _2$}
+            \label{fig:iso}
+        \end{figure}
+
+        To verify that $\varphi$ is an isomorphism, we must verify that $\varphi$ is a homomorphism.
+        Before doing this, note that $\Z _2 \times \Z _2$ and $Sym (R)$ are abelian.
+        We can check $Sym (R)$ by verifying that $ f r^2 = r^2 f$.
+        Since each group is abelian, we only need to check one ``ordering'' of each pair of elements.
+        Now we verify that $\varphi$ respects the group structure.
+        \begin{align*}
+            \varphi (e) + \varphi (x) &= (0, 0) + \varphi (x) = \varphi (x) = \varphi (e x) \text{ for any } x \in Sym(R) \\
+            \varphi (f) + \varphi (r^2) &= (1,0) + (0,1) = (1,1) = \varphi (f r^2) \\
+            \varphi (f) + \varphi (fr^2) &= (1,0) + (1,1) = (0,1) = \varphi (r^2) = \varphi (ff r^2) \\
+            \varphi (f r^2) + \varphi (r^2) &= (1,1) + (0,1) = (1,0) = \varphi (f) = \varphi (f r^4) \\
+        \end{align*}
     }
 
 \end{document}
