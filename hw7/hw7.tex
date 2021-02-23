@@ -34,7 +34,7 @@
     }
     \proof{
         First let's show that $MN$ is a subgroup of $G$.
-        We will use the asthetic definition.
+        We will use the aesthetic definition.
         We know $MN \neq \emptyset$ because $e \in M, N$ so $ee = e \in MN$.
         Now for arbitrary $x, y \in MN$ we show that $x y^{-1} \in MN$.
         Let $x = mn \in MN$ and $y = \bar m \bar n \in MN$.
@@ -59,12 +59,12 @@
     }
     \proof{
         First let's show that $M \leq G$.
-        Let's use the asthetic definition again; we know the identity element $e \in M$ since $Ne = N$ the identity element of $G / N$.
+        Let's use the aesthetic definition again; we know the identity element $e \in M$ since $Ne = N$ the identity element of $G / N$.
         Since $\overline M $ is a subgroup of $G / N$, we know $N \in \overline M$.
         Now fix any $x,y \in M$ and we show $x y ^{-1} \in M$.
         Which is equivalent to showing that $N x y^{-1} \in \overline M$.
         Since $x,y \in M$ we know $Nx, Ny \in \overline M$.
-        But $\overline M$ is a subgroup of $G / N$ so the asthetic condition holds in $\overline M$: $(Nx)(Ny)^{-1} \in \overline M$.
+        But $\overline M$ is a subgroup of $G / N$ so the aesthetic condition holds in $\overline M$: $(Nx)(Ny)^{-1} \in \overline M$.
         We know $(Ny)^{-1} = Ny ^{-1}$ so $(Nx)(Ny)^{-1} = Nx Ny^{-1}$.
         Since $N$ is normal in $G$, the left coset $xN$ equals the right coset $Nx$.
         So $Nx Ny^{-1} = NN xy^{-1} = N xy^{-1} \in \overline M$ the exact condition we wanted to show. \parspace
@@ -84,7 +84,11 @@
         If $\overline{M}$ in the previous problem is normal in $G / N$, show that the $M$ defined is normal in $G$.
     }
     \proof{
-
+        Since $\overline M \trianglelefteq G/N$ we know that $(Ng)^{-1} \overline M (Ng) \subset \overline M$ for arbitary $g \in G$.
+        That is to say, for any $N m \in \overline M$ (where $m \in M$) there exists some $N m' \in \overline M$ (where $m' \in M$) such that $Ng^{-1} Nm Ng = Nm'$.
+        Then since left cosets of $N$ equal right cosets of $N$ in $G$ and $NN = N$, the LHS can be rearranged to say that $N g^{-1} m g = N m' \in \overline M$.
+        Since $N g^{-1} m g \in \overline M$, we must have $g^{-1} m g \in M$.
+        But then $g$ was arbitary in $G$ and $m$ was arbitrary in $M$ so $g^{-1} M g \subset M$ and $M \trianglelefteq G$.
     }
 \end{exercise}
 
