@@ -13,7 +13,16 @@
         If $G$ is any group, $N \trianglelefteq G$ and $\varphi : G \to G'$ a homomorphism of $G$ onto $G'$, prove that the image, $\varphi (N)$, of $N$ is a normal subgroup of $G'$.
     }
     \proof{
-
+        We already know that the image $\varphi (N)$ is a subgroup of $G'$ since the image of a subgroup under a homomorphism is a subgroup.
+        So we only need to show that $\varphi (N)$ is normal in $G'$.
+        Fix $\overline{g} \in G'$ and $\overline n \in \varphi (N) \subset G'$.
+        Since $\varphi$ is onto, we can pick $g \in G$ and $n \in N$ such that $\varphi (g) = \overline{g}$ and $\varphi (n) = \overline n$. \parspace
+        Now consider $\varphi (g^{-1}) \varphi (n) \varphi (g) \in G'$.
+        On the one hand, $ \varphi (g^{-1}) \varphi (n) \varphi (g) = \varphi (g)^{-1} \varphi (n) \varphi (g) = \overline g ^{-1} \overline n \overline g $.
+        But also $ \varphi (g^{-1}) \varphi (n) \varphi (g) = \varphi (g^{-1} n g) = \varphi (n_1) \in \varphi (N) $ since $\varphi$ is a homomorphism.
+        Then our chain of equalities show that $\overline g ^{-1} \overline n \overline g \in \varphi (N)$.
+        Since $\overline g, \overline n$ were selected arbitrarily from $G'$ and $\varphi (N)$ respectively, we just showed that $\overline g ^{-1} \varphi (N) \overline g \subset \varphi (N)$.
+        Which is to say that $\varphi (N)$ is a normal subgroup of $G'$.
     }
 \end{exercise}
 
@@ -24,7 +33,20 @@
         If $N \trianglelefteq G$ and $M \trianglelefteq G$ and $MN = \{ mn \mid m \in M, n\in \N \}$, prove that $MN$ is a subgroup of $G$ and that $MN \trianglelefteq G$.
     }
     \proof{
-
+        First let's show that $MN$ is a subgroup of $G$.
+        We will use the asthetic definition.
+        We know $MN \neq \emptyset$ because $e \in M, N$ so $ee = e \in MN$.
+        Now for arbitrary $x, y \in MN$ we show that $x y^{-1} \in MN$.
+        Let $x = mn \in MN$ and $y = \bar m \bar n \in MN$.
+        Then $ x y^{-1} = (mn) (\bar m \bar n)^{-1} = mn \bar n ^{-1} \bar m ^{-1} $.
+        Taking $n_1 ^{-1} = n \bar n ^{-1}$, we get $ mn \bar n ^{-1} \bar m ^{-1} = m n_1 ^{-1} m^{-1} n_1 n_1 ^{-1} $
+        Then since $M$ is normal in $G$ we know $n_1 ^{-1} m^{-1} n_1 = m_1 \in M$ so we have $xy = m m_1 n_1^{-1} = m_2 n_2 \in MN$ where $m_2 = m m_1$ and $n_2 = n_1 ^{-1}$.
+        Thus $MN \leq G$. \parspace
+        We now prove that $MN$ is normal in $G$.
+        We must show that $g ^{-1} MN g \subset MN$.
+        Fix any $g \in G$ and $mn \in MN$.
+        Then $g^{-1} mn g = g^{-1} m g g^{-1} n g$ but $M,N$ are each normal so let $m_1 = g^{-1} m g \in M$ and $n_1 = g^{-1} n g \in N$ and we have $ g^{-1} mn g = m_1 n_1 \in MN $.
+        Since we selected the values arbitrarily, $g^{-1} MN g \subset MN$ and $MN \trianglelefteq G$.
     }
 \end{exercise}
 
@@ -36,7 +58,22 @@
         If $G$ is a group and $N \trianglelefteq G$, show that if $\overline{M}$ is a subgroup of $G / N$ and $M = \{ a \in G \mid Na \in \overline{M} \}$, then $M$ is a subgroup of $G$ and $N \subset M$.
     }
     \proof{
-
+        First let's show that $M \leq G$.
+        Let's use the asthetic definition again; we know the identity element $e \in M$ since $Ne = N$ the identity element of $G / N$.
+        Since $\overline M $ is a subgroup of $G / N$, we know $N \in \overline M$.
+        Now fix any $x,y \in M$ and we show $x y ^{-1} \in M$.
+        Which is equivalent to showing that $N x y^{-1} \in \overline M$.
+        Since $x,y \in M$ we know $Nx, Ny \in \overline M$.
+        But $\overline M$ is a subgroup of $G / N$ so the asthetic condition holds in $\overline M$: $(Nx)(Ny)^{-1} \in \overline M$.
+        We know $(Ny)^{-1} = Ny ^{-1}$ so $(Nx)(Ny)^{-1} = Nx Ny^{-1}$.
+        Since $N$ is normal in $G$, the left coset $xN$ equals the right coset $Nx$.
+        So $Nx Ny^{-1} = NN xy^{-1} = N xy^{-1} \in \overline M$ the exact condition we wanted to show. \parspace
+        Now we show that $N \subset M$.
+        Pick any $x \in N$ and consider the right coset $Nx$.
+        Since $x \in N$, we know $Nx = N$.
+        We already worked out that $N \in \overline M$.
+        So $Nx \in \overline M$ which means $x \in M$.
+        Therefore $N \subset M$.
     }
 \end{exercise}
 
