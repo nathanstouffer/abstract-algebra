@@ -99,7 +99,32 @@
         Prove that $G / N \cong $ positive real numbers under multiplication.
     }
     \proof{
-
+        First let's explore the group $G / N$ and show that the concept of $G$ mod $N$ even makes sense.
+        We must have $N \trianglelefteq G$, although since $G = \R \setminus \{ 0 \}$ with multiplication is abelian we only need to show that $N \leq G$.
+        The identity $1 \in G$ is a member of $N$.
+        We inherit associativity since $N \subset G$.
+        As far as inverses go, the only element not equal to 1 is $-1$, which is its own inverse.
+        The only remaining property to prove is closure: $1 * -1 = -1 \in N$ (the remaining combinations are shown by abelian or inverse properties).
+        So $N \leq G$ and since $G$ is abelian, $N \trianglelefteq G$.
+        Because of this, it makes sense to contemplate $G / N$. \parspace
+        Consider the group $G / N = \{ Nx \mid x \in G \}$ where $Nx = \{ nx \mid n \in N \} = \{ x, -x \}$.
+        Thus $G / N = \{ \{ x, -x \} \mid x \in \R \setminus \{ 0 \} \}$.
+        Let's now consider the function $\varphi : G / N \to \R ^+$ defined by $\varphi (Nx) = \varphi ( \{ x, -x \} ) = |x| \in \R^+$.
+        The function $\varphi$ is well defined since $|x| = |-x| > 0$ and $|x| > 0$ when $x \neq 0$, so $|x|$ is in the co-domain and choosing $x$ or $-x$ results in the same output. \parspace
+        We now prove that $\varphi$ is a homomorphism and a bijection, thus an isomorphism.
+        For any $Nx, Ny \in G / N$, we have $\varphi (Nx) \varphi (Ny) = \varphi (\{ x, -x \}) \varphi (\{ y, -y \}) = |x| |y| = |xy|$.
+        Also we have $\varphi (Nx Ny) = \varphi (N xy) = |xy|$ by the group operation in $G / N$.
+        So $\varphi (Nx Ny) = \varphi (Nx) \varphi (Ny)$ and $\varphi$ is a homomorphism.
+        Now we show that $\varphi$ is 1-1.
+        Pick $Nx, Ny \in G /N$ such that $\varphi (Nx) = \varphi (Ny) \implies |x| = |y|$ which means $y = x$ or $y = -x$.
+        Consider $Nx = \{ x, -x \}$.
+        If $y = x$, then certainly $Nx = Ny$ and if $y = -x$ then $Ny = N (-x) = \{ -x, x \} = Nx$ so we have $Nx = Ny$ in either case.
+        Thus $\varphi$ is an injection.
+        What about a surjection?
+        This is quite easy, for $x \in \R ^+$ choose $Nx \in G / N$.
+        Then $\varphi (Nx) = |x| = x$ since $x > 0$.
+        Thus $\varphi$ is a homomorphism and a bijection so $\varphi$ is an isomorphism. \parspace
+        Since there is an isomorphism from $G/N$ onto $\R ^+$ (both with $*$), the two groups are isomorphic.
     }
 \end{exercise}
 
