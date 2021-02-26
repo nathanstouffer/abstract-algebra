@@ -135,7 +135,34 @@
         If $G$ is a group and $N \trianglelefteq G$, show that if $a \in G$ has finite order $o(a)$, then $Na$ in $G / N$ has finite order $m$ where $m \mid o(a)$.
     }
     \proof{
-
+        We begin with a general lemma: if $H$ is a finite, cyclic subgroup of $G$ and $\sigma : G \to K$ is a homomorphism then $\sigma(H)$ is a finite, cyclic subgroup of $K$.
+        Here is the proof.
+        We already know that the image of a subgroup under a homomorphism is a subgroup so we only need show the finite and cyclic properties.
+        $\sigma (H)$ is finite since $\sigma$ is a function and $H$ (the set of inputs) is finite.
+        Further, a group is cyclic if there exists some element $x$ such that any member of the group $y$ can be written as $y = x^j$ for some integer $j$.
+        We know this to be true for $H$.
+        Let $|H| = n$, then $H = \{ e, h, h^2, ..., h^{n-1} \}$.
+        The image of any element of $H$ is $\sigma (h^k) = \sigma (h)^k$ (apply induction for the proof) so $\sigma (h)$ can be taken as the element that generates $\sigma (H)$. \parspace
+        Now let's return to the problem at hand.
+        Fix $a \in G$ such that $o(a)$ is finite and let $o(a) = n$.
+        Then let $A = \{ e, a, a^2, ..., a^{n-1} \}$ a finite, cyclic subgroup of $G$.
+        Let $\varphi$ be the natural homomorphism from $G$ onto $G/N$ and $\psi = \varphi \mid _{A}$, the restriction of $\varphi$ to $A$.
+        Since $\psi$ is a restriction of a homomorphism to $G/N$, the map $\psi : A \to G/N$ is a homomorphism.
+        Thus $\ker \psi = \{ x \in A \mid \psi (x) = N \in G/N \}$ is a subgroup of $A$ (it is also normal but we do not need this).
+        Since $\ker \psi \leq A$, Lagrange's theorem tells us that $| \ker \psi | \mid |A|$.
+        Let $k = |\ker \psi|$ then we must have $k \mid n$. \parspace
+        Let's now apply the lemma, so $\psi (A)$ is a finite, cyclic subgroup of $G/N$.
+        Let $| \psi (A) | = m \leq n$ and $\psi (A) = \{ N, Na, Na^2, ..., Na^{m-1} \}$.
+        Note that the right cosets listed in $\psi (A)$ are all mutually disjoint since $\psi (A)$ is of order $m$.
+        For any $0 \leq j < m$, pick any $N a^j \in \psi (A)$.
+        Its pre-image $\psi ^{-1} (Na^j) = \{ x \in A \mid \psi (x) = N a^j \} = (\ker \psi) a^j$ by Lemma 2.5.4 from the text.
+        Also note that the set of pre-images is mutually disjoint because $0 \leq j < m$ and the elements listed in $\psi (A)$ are mutually disjoint. \parspace
+        We can also deduce that $| \ker \psi | = | (\ker \psi) a^j |$ since the map $R_{a^j}: \ker \psi \to (\ker \psi) a^j$ defined by right multiplying by $a^j$ is a bijection between the two sets (it has an inverse).
+        Then since $|\ker \psi| = k$ we have $| (\ker \psi) a^j | = k$ for all $0 \leq j < m$.
+        Note that $A = \cup _{j=0}^{m-1} \psi ^{-1} (Na^j)$ and the pre-images are mutually disjoint (this is important in the chain of equalities below).
+        Taking the cardinality of both sides, we must have
+        $$|A| = n = \left| \bigcup _{j=0}^{m-1} \psi ^{-1} (Na^j) \right| = \bigcup _{j=0}^{m-1} \left| \psi ^{-1} (Na^j) \right| = \bigcup _{j=0}^{m-1} |(\ker \psi) a^j | = \bigcup _{j=0}^{m-1} k = m*k $$
+        Thus $o(a) = n = m*k$ where $k \in \N \subset \Z$ which is equivalent to saying that $m \mid o(a)$, as desired!
     }
 \end{exercise}
 
