@@ -14,7 +14,40 @@
         If $N = \{ f \in G \mid f(1/4) = 0 \}$, prove that $G/N \cong $ the real numbers under $+$.
     }
     \proof{
-
+        Note that our ambient group $G$ is abelian so any subgroup is a normal subgroup.
+        We first claim that $N \leq G$ by showin the aesthetic definition holds for $N$.
+        Certainly $id \in N$ for $id (1/4) = 0$.
+        Now pick $f,g \in N$ and recall that $g^{-1} = - g$.
+        Then $f + g^{-1} = f + (-g)$ and now evaluating at $x=1/4$: $(f+(-g))(1/4) = f(1/4) + (-g(1/4)) = 0 + -0 = 0$ so $f + g^{-1} \in N$. \parspace
+        Now the quotient group $G / N = \{ g + N \mid g \in G \}$ and $(g+N)(1/4) = g(1/4) + N(1/4) = g(1/4) + 0 = g(1/4)$.
+        Let's define the mapping $\psi: G/N \to \R$ which takes $g + N$ to $g(1/4)$.
+        We must verify four things for $\psi$ to be an isomorphism: well-defined, homomorphism, onto, and 1-1. \parspace
+        Well-defined: pick $g + N = \bar g + N$.
+        Then there exists some $f \in N$ such that $g = \bar g + f$ which implies that $\bar g = g + f$.
+        Now consider $\psi (\bar g + N) = \psi (g + f + N) = (g + f)(1/4) = g(1/4) + f(1/4) = g(1/4) = \psi (g + N)$ where we know $f(1/4) = 0$ since $f \in N$. \parspace
+        Homomorphism: fix $g_1 +N, g_2 + N \in G / N$.
+        Certainly we have $\psi (g_1 + N) + \psi (g_2 + N) = g_1(1/4) + g_2 (1/4)$.
+        But we also have $\psi (g_1 + N + g_2 + N) = \psi (g_1 + g_2 + N) = (g_1 + g_2)(1/4) = g_1 (1/4) + g_2 (1/4) $ so $\psi$ is a homomorphism. \parspace
+        Onto: this is verified quite easily.
+        If you give me an $x^\star \in \R$, I will give you the function $f(x) = x^\star$ for $x \in [0,1]$.
+        Certainly $\psi (f + N) = f(1/4) = x^\star$. \parspace
+        1-1: fix any $f_1, f_2 \in G$ such that $\psi (f_1 + N) = \psi (f_2 + N)$.
+        We wish to show that $f_1 + N = f_2 + N$ which is true if there exists some $n \in N$ such that $f_1 = f_2 + n$.
+        We will provide such a function $n(x)$.
+        Note that $\psi (f_1 + N) = \psi (f_2 + N) \implies f_1 (1/4) = f_2 (1/4)$.
+        Here is our function defined on $[0,1]$:
+        \[ n(x) =
+        \begin{cases}
+            0 & x = 1/4 \\
+            f_1(x)-f_2(x) & x \neq 1/4
+        \end{cases}
+        \]
+        Now consider $f_2(x) + n(x)$.
+        If $x = 1/4$ then $f_2(1/4) + n(1/4) = f_2 (1/4) + 0 = f_1 (1/4)$.
+        Then if $x \neq 1/4$ we have $f_2 (x) + n(x) = f_2 (x) + f_1 (x) - f_2 (x) = f_1 (x)$.
+        Thus $f_1 (x) = f_2 (x) + n(x)$ for all $x \in [0,1]$ and we have $f_1 = f_2 + n$ which implies that the cosets $f_1 + N$ and $f_2 + N$ are equal.
+        Thus $\psi$ is 1-1. \parspace
+        We have check everything we need to for $\psi$ to be an isomorphism so the two groups are isomorphic!
     }
 \end{exercise}
 
@@ -59,12 +92,28 @@
 \begin{exercise}{96}{6}
     \problem{
         Let $G$ be a group, $N_1, N_2, \ldots, N_k$ normal subgroups of $G$ such that: \\
-        \indent 1. $G = N_1 N_2 \cdots N_k$ \\
-        \indent 2. For each $i$, $N_i \cap (N_1 N_2 \cdots N_{i-1} N_{i+1} \cdots N_k) = (e)$ \\
+        \indent (1) $G = N_1 N_2 \cdots N_k$ \\
+        \indent (2) For each $i$, $N_i \cap (N_1 N_2 \cdots N_{i-1} N_{i+1} \cdots N_k) = (e)$ \\
         Prove that $G$ is the direct product of $N_1, N_2, \ldots, N_k$
     }
     \proof{
-
+        We begin with a lemma that is a consequence of property (2).
+        Given a fixed $N_i$, let $H_i$ be the product of any selection of $\bar N_i = N_1, ..., N_{i-1}, N_{i+1}, ... , N_k$.
+        We claim that $N_i \cap H_i = (e)$.
+        Here is the proof.
+        Certainly $e \in H_i$ and $e \in N_i$ so $e \in N_i \cap H_i$.
+        From property (2), we know that $N$ intersect all the other normal subgroups $N_j$ is $(e)$.
+        Further, we know $H_i$ must be a subset of $N_1, ..., N_{i-1}, N_{i+1}, ... , N_k$ for every element of $H_i$ can be written as an element of $\bar N_i $ with $e$ chosen as the element for sets that were not selected for $H_i$.
+        Thus we are just constricting one of the sets involved in an intersection (and we certainly keep the elements that are already in the intersection) so $N_i \cap H_i = (e)$. \parspace
+        Now let's proceed by induction.
+        For a base case, take $K_2 = N_1 N_2$.
+        By the lemma just proven, we have $N_1 \cap N_2 = (e)$ and the corollary on page 95 of the textbook tells us that $K_2$ is the internal product of $N_1$ and $N_2$.
+        Futhermore, $K_2 \trianglelefteq G$ since $N_1, N_2 \trianglelefteq G$.
+        Now supppose for some $j \in \{ 2, 3, ..., k-1 \}$ that $K_j $ is the direct product $K_j = N_1 N_2 \cdots N_j$.
+        We will show that $K_{j+1} = N_1 N_2 \cdots N_j N_{j+1} $ is also a direct product.
+        The lemma tells us that $K_j \cap N_{j+1} = (e)$ and we can apply the corollary again to say that $K_{j+1}$ is the direct product of $N_1 N_2 \cdots N_j N_{j+1} $. \parspace
+        Thus, by induction, every $K_j$ for $j \in \{ 2, 3, ..., k \}$ is the direct product of $N_1 N_2 \cdots N_j$.
+        This implies that $G = N_1 N_2 \cdots N_k$ is a direct product as well!
     }
 \end{exercise}
 
