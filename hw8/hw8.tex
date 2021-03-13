@@ -59,7 +59,24 @@
         Identify and illustrate with pictures the three quotient groups in the 3rd isomorphism theorem instantiated for $G = \R \times \Z _2$, $N = \Z \times \Z _2$, and $K = 2\Z \times \{ 0 \}$.
     }
     \proof{
-
+        For this problem and the next, I ended up drawing a lot of pictures so all my work is in the figures below.
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.95\textwidth]{images/3isothminit}
+            \label{fig:3isothminit}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.95\textwidth]{images/GmodN}
+            \label{fig:GmodN}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.95\textwidth]{images/GmodKNmodK}
+            \label{fig:GmodKNmodK}
+        \end{figure}
+        \newpage
+        Thus we have depicted the groups!
     }
 
 
@@ -72,7 +89,33 @@
         In particular, draw the cosets making up the quotient groups and recognize the groups as familiar concrete groups.
     }
     \proof{
-
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{images/2isothminit}
+            \label{fig:2isothminit}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{images/HN}
+            \label{fig:HN}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{images/HandN}
+            \label{fig:HandN}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{images/HmodHandN}
+            \label{fig:HmodHandN}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{images/HNmodN}
+            \label{fig:HNmodN}
+        \end{figure}
+        \newpage
+        Thus we have depicted the groups!
     }
 
 % hw problem 4 -----------------------------------------------------------------
@@ -83,7 +126,17 @@
         Prove that $G$ is the direct product of $N_1, N_2, \ldots, N_k$.
     }
     \proof{
-
+        This one threw me for a loop, I could not come up with a rigorous proof of the statement.
+        Here is what I got.
+        $G$ is the direct product of $N_1, N_2, \ldots N_k$ if and only if $N_1 \times N_2 \times \cdots \times N_k$ is isomorphic to $G$.
+        Consider the function $\psi: N_1 \times N_2 \times \cdots \times N_k \to G$ defined by taking $(n_1, n_2, \ldots, n_k)$ to $n_1 n_2 \cdots n_k$.
+        Since $G = N_1 N_2 \cdots N_k$ we know $\psi$ to be a surjection.
+        Furthermore, since $|G| = |N_1| |N_2| \cdots |N_k| = | N_1 \times N_2 \times \cdots \times N_k |$ and each cardinality is finite, we can deduce that $\psi$ is also an injection. \parspace
+        It only remains to show that $\psi$ is a homomorphism.
+        That is, we must show that
+        $$\psi ( (n_1, n_2, \ldots, n_k)) \psi ( (\bar n_1, \bar n_2, \ldots, \bar n_k)) = \psi ( (n_1, \ldots, n_k) ( \bar n_1, \ldots, \bar n_k) ) $$
+        Cetainly the LHS is $n_1 \cdots n_k \bar n_1 \cdots \bar n_k$ and the RHS is $\psi ( n_1 \bar n_1, \ldots, n_k \bar n_k) = n_1 \bar n_1 \cdots n_k \bar n_k$.
+        However, I could not not figure out a way to show that the RHS equals the LHS.
     }
 \end{exercise}
 
