@@ -13,7 +13,10 @@
         Prove that a group of order 35 is cyclic.
     }
     \proof{
-
+        We will prove this by using Theorem 2.8.5 on page 91 of the textbook.
+        Let $G$ be a group of order 35 and $p=7,q=5$ then $|G| = 35 = p*q = 7*5$ (also $p>q$).
+        Then $5 \nmid (7-1) $ since $7-1=6$ and $5 \nmid 6$.
+        Thus the theorem tells us that $G$ must be cyclic.
     }
 \end{exercise}
 
@@ -24,7 +27,13 @@
         If $G$ is a group with subgroups $A, B$ of orders $m,n$, respectively, where $m$ and $n$ are relatively prime, prove that the subset of $G$, $AB = \{ ab \mid a \in A, b \in B \}$, has $mn$ distinct elements.
     }
     \proof{
-
+        Note that $A \cap B \leq A,B$ which means that $|A \cap B|$ divides both $|A|=m, |B|=n$ by Lagrange's Theorem.
+        But $(m,n) = 1$ so we must have $|A \cap B| = 1$.
+        This means that $AB$ is an internal direct product (take $H = AB$ and $|A \cap B| = (e)$ so $H$ must be in an internal direct product).
+        Since $AB$ is an internal direct product we have $AB \cong A \times B$. \parspace
+        Since the two groups $AB, A \times B$ are isomorphic, there exists a bijection their underlying sets so we have $|AB| = | A \times B|$.
+        Since $A,B$ are finite, $|A \times B| = mn$ so we have $|AB|=mn$ as well.
+        Thus $AB$ has mn distinct elements.
     }
 \end{exercise}
 
@@ -50,23 +59,25 @@
 % hw problem 4 -----------------------------------------------------------------
 
 \newpage
-\section*{Abelinan Classification}
+\section*{Abelian Classification}
     \problem{
         List all abelian isomorphism classes with order 108.
     }
     \proof{
-
+        Let's first find the prime factorization of 108: $108 = 54*2 = 27*2^2 = 3^3*2^2$.
+        There are 3 partitions of 3: $3=3, 3=2+1, $ and $3=1+1+1$ and 2 partitions of 2: $2=2$ and $2=1+1$.
+        Thus there are $2*3 =6$ nonisomorphic groups of order 108.
     }
 
 % hw problem 5 -----------------------------------------------------------------
 
 \begin{exercise}{101}{2}
     \problem{
-        Let $G$ be an abelina group of order $p^n$, $p$ a prime, and let $a \in G$ have maximal order.
+        Let $G$ be an abelian group of order $p^n$, $p$ a prime, and let $a \in G$ have maximal order.
         Show that $x^{o(a)} = e$ for all $x \in G$.
     }
     \proof{
-
+        
     }
 \end{exercise}
 
