@@ -53,9 +53,28 @@
     }
     \proof{
         \\\\
-        (a) \parspace
+        (a) Fix $a$ and $a' \in [a]$, this implies that there exists some $\bar b \in K$ such that $\bar b a \bar b ^{-1} = a'$.
+        Select $k = \bar b$.
+        We now wish to show that $Stab(a') = \bar b \, Stab(a) \, \bar b ^{-1}$.
+        Going to the left, pick any $\bar b b \bar b ^{-1} \in \bar b \, Stab(a) \, \bar b ^{-1}$.
+        Then we know that $b a b^{-1} = a$ and $\bar b a \bar b ^{-1} = a'$.
+        Now consider
+        $$ (\bar b b \bar b ^{-1}) a' (\bar b b \bar b^{-1})^{-1} = \bar b b \bar b^{-1}a' \bar b b^{-1} \bar b^{-1} = \bar b b a b^{-1} \bar b^{-1} = \bar b a \bar b^{-1} = a'$$
+        where the simplifications were made because $b a b^{-1} = a$ and $\bar b a \bar b ^{-1} = a'$.
+        So then $\bar b b \bar b^{-1}$ is also a member of $Stab(a')$. \parspace
+        Now pick any $b' \in Stab(a')$ which means $b' a' (b')^{-1} = a'$.
+        We wish to show that $b' \in \bar b \, Stab(a) \bar b ^{-1}$ which is true of $(\bar b ^{-1} b' \bar b) a (\bar b ^{-1} b' \bar b ^{-1})^{-1} = a$.
+        So consider
+        $$ (\bar b ^{-1} b' \bar b) a (\bar b ^{-1} b' \bar b ^{-1})^{-1}
+        = \bar b ^{-1} b' \bar b a \bar b ^{-1} (b')^{-1} \bar b
+        = \bar b ^{-1} b' a' (b')^{-1} \bar b = \bar b ^{-1} a' \bar b = a$$
+        Since $\bar b a \bar b^{-1} = a' \iff \bar b^{-1} a' \bar b$.
+        Thus we have $Stab(a') = \bar b \, Stab(a) \, \bar b ^{-1}$.
+        This gives $|Stab(a)| = |Stab(a')|$ since the map taking $b \in Stab$ to $\bar b b \bar b ^{-1}$ is a bijection (because it has an inverse function). \parspace
         (b) We will now show that $\# [a] = \frac{|K|}{|Stab(a)|}$ by equivalently showing that $|Stab(a)| * \# [a] = |K|$.
-        From part (a) we know that every $a' \in [a]$ absorbs $|Stab(a')| = |Stab(a)|$ elements of the form $b a b^{-1}$ for $b \in K$.
+        From the proof of part (a) we know that every $a' \in [a]$ absorbs $|Stab(a')| = |Stab(a)|$ elements of the form $b a b^{-1}$ for $b \in K$.
+        Thus we have $|Stab(a)| + \cdots + |Stab(a)| = |K|$ where $\cdots$ is adding $\# [a]$ times.
+        Thus we have $|Stab(a)| * \# [a] = |K| \iff \# |a| = \frac{|K|}{|Stab(a)|}$.
     }
 
 
@@ -80,7 +99,14 @@
         Show that $x^{o(a)} = e$ for all $x \in G$.
     }
     \proof{
-
+        By Lagrange's Theorem, any element in $G$ must have order $p^j$ for some $j \in \{ 0, 1, ..., n \}$.
+        Let $p^k = o(a)$ the order of $a$.
+        I struggled a lot on this problem so I make the following conjecture which helps me prove the problem (if true).
+        Cosider the map $p^\star: G \to G$ defined by taking $x \mapsto x^p$.
+        I conjecture that $p^\star$ is a homormophism onto a subgroup $H \leq G$ with order $k$.
+        Since $|H| = k$ every $h \in H$ satisfies $h^k = e \in H \subset G$.
+        But note that $H$ consists exactly of the elements $x^p \in G$ so $h^k = (x^p)^k = e$.
+        But $x$ was arbitary in $G$ so we have shown that $x^{o(a)} = e$ for all $x \in G$.
     }
 \end{exercise}
 
