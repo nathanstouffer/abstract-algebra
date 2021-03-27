@@ -131,8 +131,69 @@
         $$
         Then each entry of the matrix is equal since $R$ with $+$ is an abelian group.
         \\\\
-        {\bf (b)}  \\\\
-        {\bf (c)}
+        {\bf (b)} To show that set of upper diagonal matrices $T$ over a ring $R$, we must show that for all $A,B \in T$ that $A \pm B \in T$ and $AB \in T$.
+        Before doing so, note that since $a = a+0$ for all $a \in R$, we must have $ba = b(a + 0) = ba + b0 \iff b0 = ba - ba = 0$ where $b$ is arbitrary in $R$.
+        Now consider $A = \begin{bmatrix} a & b \\ 0 & c \end{bmatrix}, B = \begin{bmatrix} \bar a & \bar b \\ 0 & \bar c \end{bmatrix} \in T$.
+        $A \pm B$ is in $T$ since each element in the sum will be the sum of two elements of $R$ and the bottom left entry is $0+0=0$.
+        $$ AB =
+        \begin{bmatrix}
+            a & b \\
+            0 & c
+        \end{bmatrix}
+        \begin{bmatrix}
+            \bar a & \bar b \\
+            0 & \bar c
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            a \bar a + b 0 & a \bar b + b \bar c \\
+            0 \bar a + c 0 & 0 \bar b + c \bar c
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            a \bar a & a \bar b + b \bar c \\
+            0        & c \bar c
+        \end{bmatrix}
+        \in T
+        $$
+        So $T$ is a subing of $S$. \\\\
+        {\bf (c)} We now discuss when $A \in T$ has an inverse.
+        Suppose for some fixed $A \in T$ there exists $A^\star$ such that $A A^\star = I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$.
+        Then
+        $$ \begin{bmatrix} a & b \\ 0 & c \end{bmatrix} \begin{bmatrix} \bar a & \bar b \\ 0 & \bar c \end{bmatrix}
+        =
+        \begin{bmatrix}
+            a \bar a + b 0 & a \bar b + b \bar c \\
+            0 \bar a + c 0 & 0 \bar b + c \bar c
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            a \bar a & a \bar b + b \bar c \\
+            0        & c \bar c
+        \end{bmatrix}
+        =
+        \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}
+        $$
+        which implies that $a \bar a = 1 = c \bar c$.
+        If we instead multiply $A^\star A$ then we find that $\bar a a = 1 = \bar c c$ so both $a,c \in R$ have multiplicative inverses.
+        Now going the other direction, suppose that $a,c \in R$ have multiplicative inverses $a^{-1}, c^{-1} \in R$.
+        For $A = \begin{bmatrix} a & b \\ 0 & c \end{bmatrix} $ choose $A^\star = \begin{bmatrix} a^{-1} & a^{-1}(-bc^{-1}) \\ 0 & c^{-1} \end{bmatrix} $
+        Now consider the product
+        $$ AA^\star =
+        \begin{bmatrix} a & b \\ 0 & c \end{bmatrix}
+        \begin{bmatrix} a^{-1} & a^{-1}(-bc^{-1}) \\ 0 & c^{-1} \end{bmatrix}
+        =
+        \begin{bmatrix}
+            aa^{-1} + b0 & aa^{-1}(-bc^{-1}) + bc^{-1} \\
+            0a^{-1} + c0 & 0a^{-1}(-bc^{-1}) + cc^{-1}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix}
+        $$
+        The commutation $A^\star A$ also equals $I$, thus $A \in T$ has an inverse when $a^{-1}, c^{-1}$ exist in $R$.
     }
 \end{exercise}
 
@@ -141,7 +202,7 @@
 \begin{exercise}{135}{23}
     \problem{
         Define the map $*$ in the quaternions by taking
-        $$\alpha _0 + \alpha _1 + \alpha _2 + \alpha _3 \mapsto \alpha _0 - \alpha _1 - \alpha _2 - \alpha _3$$
+        $$\alpha _0 + \alpha _1 i + \alpha _ j + \alpha _3 k \mapsto \alpha _0 - \alpha _1 i - \alpha _2 j - \alpha _3 k$$
         Then show that: \\\\
         {\bf (a)} $x^{**} = (x^*)^* = x$ \\
         {\bf (b)} $(x+y)^* = x^* + y^*$ \\
@@ -149,7 +210,38 @@
         {\bf (d)} $(xy)^* = y^* x^*$
     }
     \proof{
-
+        {\bf (a)} Take $x = \alpha _0 + \alpha _1 i + \alpha _ j + \alpha _3 k$ a quaternion.
+        Let's begin with
+        $(x^*)^*
+        = ((\alpha _0 + \alpha _1 i + \alpha _ j + \alpha _3 k)^*)^*
+        = (\alpha _0 - \alpha _1 i - \alpha _ j - \alpha _3 k)^*
+        =  \alpha _0 + \alpha _1 i + \alpha _ j + \alpha _3 k
+        = x$. \\\\
+        {\bf (b)} Now for quaternions $x,y$:
+        $(x+y)^*
+        = (\alpha _0 + \alpha _1 i + \alpha _ j + \alpha _3 k + \beta _0 + \beta _1 i + \beta _ j + \beta _3 k)^*
+        = ((\alpha _0 + \beta _0) + (\alpha _1 + \beta _1)i + (\alpha _2 + \beta _2)j + (\alpha _3 + \beta _3)k)^*
+        = (\alpha _0 + \beta _0) - (\alpha _1 + \beta _1)i - (\alpha _2 + \beta _2)j - (\alpha _3 + \beta _3)k
+        = \alpha _0 - \alpha _1 i - \alpha _ j - \alpha _3 k + \beta _0 - \beta _1 i - \beta _ j - \beta _3 k
+        = x^* + y^*$ \\\\
+        {\bf (c)} For a quaterion $x = \alpha _0 + \alpha _1 i + \alpha _ j + \alpha _3 k$, we can use the definition in the textbook for $xx^*$ which gives
+        \begin{align*}
+            \gamma _0 &= \alpha _0 \alpha _0 + \alpha _1 \alpha _1 + \alpha _2 \alpha _2 + \alpha _3 \alpha _3 \\
+            \gamma _1 &= 0 \\
+            \gamma _2 &= 0 \\
+            \gamma _3 &= 0
+        \end{align*}
+        Since real numbers commute with multiplication this is also the value for $x^* x$.
+        Further it is entirely real and a sum of squares is non-negative. \\\\
+        {\bf (d)} For $(xy)^*$,
+        we have
+        \begin{align*}
+            \gamma _0 &= \alpha _0  \beta _0 - \alpha _1 \beta _1 - \alpha _2 \beta _2 - \alpha _3 \beta _3 \\
+            \gamma _1 &= -\alpha _0 \beta _1 - \alpha _1 \beta _0 - \alpha _2 \beta _3 + \alpha _3 \beta _2 \\
+            \gamma _2 &= -\alpha _0 \beta _2 + \alpha _1 \beta _3 - \alpha _2 \beta _0 - \alpha _3 \beta _1 \\
+            \gamma _3 &= -\alpha _0 \beta _3 - \alpha _1 \beta _2 + \alpha _2 \beta _1 - \alpha _3 \beta _0
+        \end{align*}
+        which turns out to be the exact same as the formula for $y^* x^*$.
     }
 \end{exercise}
 
@@ -161,7 +253,10 @@
         Show that $|xy| = |x| |y|$ for any two quaternions $x$ and $y$, by using parts (c) and (d) of problem 23.
     }
     \proof{
-
+        Before we show this, note that by the multiplication rule of quaternions, we have $xy = yx$ for any quaternion $y$ when $x$ is a real number ($i,j,k$ components are 0).
+        This can be check by hand with the multiplicatin rule.
+        Now consider $|xy| = \sqrt{(xy)(xy)^*} = \sqrt{(xy)(y^* x^*)} = \sqrt{xyy^* x^*}$.
+        Then since $yy^* \in \R$ we can say that $ \sqrt{xyy^* x^*} = \sqrt{xx^*  yy^*} = \sqrt{xx^*} \sqrt{yy^*} = |x| |y| $ as desired.
     }
 \end{exercise}
 
@@ -172,7 +267,10 @@
         Using the result of problem 24 to prove Lagrange's Identity.
     }
     \proof{
-
+        For two quaterions $x,y$ and their product $xy$, Lagrange's identity is
+        $$(\alpha _0 ^2 + \alpha _1 ^2 + \alpha _2 ^2 + \alpha _3^2)(\beta _0 ^2 + \beta _1 ^2 + \beta _2 ^2 + \beta _3^2)
+        = (\gamma _0 ^2 + \gamma _1 ^2 + \gamma _2 ^2 + \gamma _3^2)$$
+        Here the LHS is $xx^* yy^* = |x|^2 |y|^2 = (|x| |y|)^2$ and the RHS is $(xy)(xy)^* = |xy|^2$ but the previous problem told us that $|x| |y| = |xy|$ so the LHS equals the RHS and we have proved Lagrange's identity.
     }
 \end{exercise}
 
@@ -188,13 +286,40 @@
         $$ \Q _P := \{ m/n \mid \text{ prime factors of $n$ are in $P$} \} $$
         with $m/n$ being a reduce fraction: $(m,n) = 1$. \\\\
         {\bf (i)} Show that $\Q _P$ is a subring with unity of $\Q$.
-        Reserve the letter $R$ for subrings with unity, $R \subset \Q$.
+        {\bf (ii)} Reserve the letter $R$ for subrings with unity, $R \subset \Q$.
         Define the denominator primes associated to such rings by
         $$ P _R := \{ p \in \P \mid 1/p \in R \}$$
-        {\bf (ii)} Show that if $P = P_R$ then $R = \Q _P$.
+        Show that if $P = P_R$ then $R = \Q _P$.
     }
     \proof{
-
+        {\bf (i)} We wish to show that $\Q _P$ is a subring with unity of $\Q$.
+        First we show that it is a subring.
+        Consider $m/n, m'/n' \in \Q _P$ and the sum/difference:
+        $$ \frac{m}{n} \pm \frac{m'}{n'} = \frac{mn'}{nn'} \pm \frac{m'n}{nn'} = \frac{mn' \pm m'n}{nn'} $$
+        Certainly the far RHS is a number in $\Q$.
+        If we reduce it so the numerator and denominator are coprime, then we have a candidate for a member of $\Q _P$.
+        Every factor of $n,n'$ is a member $P$ so every factor of their product is also a member of $P$.
+        Also reducing $nn'$ does not add any factors so every factor of the reduction of $nn'$ is a member of $P$, therefore the sum on the far RHS is a member of $\Q _P$. \parspace
+        Now we show the product:
+        $$\frac{m}{n} * \frac{m'}{n'} = \frac{mm'}{nn'}$$
+        The product is a member of $\Q _P$ by the same reasoning as before with $nn'$.
+        So $\Q _P$ is a subring, is it a subring with unity?
+        This is equivalent to asking if $1/1 = 1\in \Q _P$.
+        It really seems like 1 should be prime but then that would mess up some unique factorization theorems so I am thinking maybe 1 is not a prime.
+        I am going to roll with the following line of reasoning: I think 1 has no prime factors the requirement that the prime factors of 1 be in the set $P$ is vacuously true and $1 \in \Q _P$! \\\\
+        {\bf (ii)} Show that if $P = P_R$ then $R = \Q _P$.
+        We wish to show that $R$ and $\Q _P$ are subsets of each other.
+        Going to the left, pick $m/n \in R$ a subring with unity of $\Q$.
+        Consider the prime factorization of $n: p_1^{j_1} * p_2^{j_2} * \cdots * p_k^{j_k}$.
+        Then each $p_*^{j_*} \in P_R$ but since $P_R = P$ each $p_*^{j_*}$ is also a member of $P$.
+        But then by very definition of $\Q _P$, we must have $m/n \in \Q _P$. \parspace
+        Now going to the right, pick any $m/n \in \Q _P$.
+        Then every prime factor of $n$ is in the set $P$, by $P_R = P$ it is also true that every prime factor of $n$ is in the set $P_R$.
+        Let $a$ be a prime factor of $n$, then $1/a \in R$
+        Thus $1/n$ is product of members of $R$ and since $R$ is a ring $1/n \in R$.
+        Then we can add $1/n$ to itself $m$ times and we still have a member of $R$.
+        This member is $m/n \in R$.
+        Thus we have shown the inclusion in both directions and $R = \Q _R$.
     }
 
 
