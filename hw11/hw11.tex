@@ -8,57 +8,171 @@
 
 % hw problem 1 -----------------------------------------------------------------
 
-\begin{exercise}{137}{40}
+\begin{exercise}{146}{3}
     \problem{
-        a
+        If $\varphi : R \to R'$ is a homomorphism of $R$ onto $R'$ adn $R$ has a unit element, 1, show that $\varphi (1)$ is the unit element of $R'$.
     }
     \proof{
-
+        To show that $\varphi (1)$ is a unit element of $R'$ we must show that $\varphi (1) r' = r' \varphi (1) = r'$ for all $r' \in R'$.
+        Fix an $r' \in R'$.
+        Since $\varphi$ is onto, there exists some $r \in R$ such that $\varphi (r) = r'$.
+        Since 1 is a unit element in $R$ we certainly have $1r = r1 = r$.
+        Then we can take $\varphi$ of each of $1r, r1, r$ and use the fact that $\varphi$ is a homomorphism to say that
+        \begin{align*}
+            1r                          &= r1                       = r               \\
+            \varphi (1r)                &= \varphi (r1)             = \varphi (r)     \\
+            \varphi (1) \varphi (r)     &= \varphi (r) \varphi (1)  = \varphi (r)     \\
+            \varphi (1) r'              &= r' \varphi (1)           = r'
+        \end{align*}
     }
 \end{exercise}
 
 % hw problem 2 -----------------------------------------------------------------
 
-\begin{exercise}{134}{10}
+\begin{exercise}{146}{4}
     \problem{
-        a
+        If $I,J$ are ideals of $R$, definte $I+J$ by $I+J = \{ i + j \mid i \in I, j \in J \}$.
+        Prove that $I+J$ is an ideal of $R$.
     }
     \proof{
-
+        We wish to show that $K= I+J$ is an ideal.
+        First we check that $K$ is nonempty.
+        Since $I,J$ are both nonempty, we can sum elements from them so $I+J = K \neq \emptyset$. \parspace
+        Now we verify that $K$ is an additive subgroup.
+        We use the aesthetic definition so we must show that for any $k, \bar k \in K$ that $k - \bar k \in K$.
+        Because of their memebership in $K = I+J$, we know that $k = i+j$ and $\bar k = \bar i + \bar j$ for some $i, \bar i \in I$ and $j, \bar j \in J$.
+        Then $k - \bar k = (i + j) - (\bar i + \bar j) = i + j - \bar i - \bar j = (i - \bar i) + (j - \bar j) \in I + J = K$ since $I,J$ are ideals of $R$. \parspace
+        We know just need to show that $rk, kr \in K$ for all $r \in R$ (we take both $I,J$ to be bi-ideals of $R$).
+        Consider $rk = r (i + j) = ri + rj = i' + j' \in I + J = K$ and $kr = (i+j)r = ir + ij = i'' + j'' \in I+J = K$ which shows that the multiplicitave requirement of being an ideal is satisfied.
     }
 \end{exercise}
 
 % hw problem 3 -----------------------------------------------------------------
 
-\begin{exercise}{135}{23}
+\begin{exercise}{146}{13}
     \problem{
-        a
+        In Example 6, show that $R / I_p \cong H(\Z _p)$.
     }
     \proof{
-
+        Here we have
+        \begin{align*}
+            R        &:= \{ \alpha _0 + \alpha _1 i + \alpha _2 j + \alpha _3 k \mid \, \alpha _i \in \Z \, i=0,1,2,3 \} \\
+            I_p      &:= \{ \alpha _0 + \alpha _1 i + \alpha _2 j + \alpha _3 k \mid \, p \mid \alpha _i  \, i=0,1,2,3 \} \\
+            H(\Z _p) &:= \{ \alpha _0 + \alpha _1 i + \alpha _2 j + \alpha _3 k \mid \, \alpha _i \in \Z _p  \, i=0,1,2,3 \}
+        \end{align*}
+        We will use the first isomorphism theorem to prove the goal.
+        Consider $\varphi : R \to H(\Z _p)$ which maps
+        $\alpha _0 + \alpha _1 i + \alpha _2 j + \alpha _3 k \mapsto \beta _0 + \beta _1 i + \beta _2 j + \beta _3 k$
+        where $\Z _p \ni \beta _i =  \alpha _i \mod p$.
+        We now investigate whether $\varphi$ is onto/homomorphism and the kernel $\varphi$.
+        That $\varphi$ is onto is simple: for an element in $H(\Z _p)$ just take the element in $R$ with the exact same coefficients.
+        That $\varphi$ is a homomorphism holds by the properties of integers modulo $p$. \parspace
+        Now we check out the kernel of $\varphi$.
+        We claim that $\ker \varphi = I_p$.
+        Going to the right, pick $\alpha \in I_p$ then $p \mid \alpha _i \iff \alpha _i \equiv 0 \mod p \implies \varphi(\alpha _i) = 0$ for all $i = 0,1,2,3$ so $\alpha \in \ker \varphi$.
+        Now going to the left, pick any $\alpha \in \ker \varphi$, this implies that $\varphi (\alpha) = 0 \implies \alpha _i \equiv 0 \mod p \implies p \mid \alpha _i$ so $\alpha$ is a member of $I _p$. \parspace
+        Thus we have provided a suitable epimorphism to apply the first isomorphism thereom, which means that $R / I _p \cong H(\Z _p)$.
     }
 \end{exercise}
 
 % hw problem 4 -----------------------------------------------------------------
 
-\begin{exercise}{135}{24}
+\newpage
+\section*{Baby version of Opt 333}
     \problem{
-        a
+        Let $V = span \left( \begin{bmatrix} 1 \\ 1 \end{bmatrix} \right) \subset \R ^2$.
+        In the ring $R = M _{2 \times 2} (\R )$, consider $J_V := \{ A \in R \mid V \subset N(A) \}$.
+        Show that $J_V$ is a principal ideal, that is, $J_V = (A)$ for some $A \in R$.
     }
     \proof{
-
+        Let $A = \begin{bmatrix} 1 & -1 \\ 1 & -1 \end{bmatrix}$.
+        Let's investigate whether $J_V = (A)$.
+        Going to the left, pick $B \in J_V$ then $V \subset N(B)$ which means that $B \begin{bmatrix} 1 \\ 1 \end{bmatrix} = 0$.
+        So we must have
+        $$ B \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+        =
+        \begin{bmatrix}
+            b_1 & b_2 \\
+            b_3 & b_4
+        \end{bmatrix}
+        \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+        =
+        \begin{bmatrix}
+            b_1 + b_2 \\
+            b_3 + b_4
+        \end{bmatrix}
+        = 0
+        $$
+        which means that $b_2 = - b_1$ and $b_4 = - b_3$.
+        Then we can rewrite $B$ as
+        $$
+        B =
+        \begin{bmatrix}
+            b_1 & -b_1 \\
+            b_3 & -b_3
+        \end{bmatrix}
+        =
+        \frac{1}{2}
+        \begin{bmatrix}
+            b_1 & b_1 \\
+            b_3 & b_3
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & -1 \\
+            1 & -1
+        \end{bmatrix}
+        $$
+        and since
+        $
+        \frac{1}{2}
+        \begin{bmatrix}
+            b_1 & b_1 \\
+            b_3 & b_3
+        \end{bmatrix}
+        \in M_{2 \times 2} (\R)$
+        we know that $B \in (A)$. \parspace
+        Now going to the right, fix any $B \in (A)$ then there exists some matrix $D \in M_{2 \times 2} (\R)$ such that $B = DA$.
+        Let's check if $V \subset N(B)$.
+        This is the case if $B \begin{bmatrix} 1 \\ 1 \end{bmatrix} = 0$:
+        $$
+        B \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+        =
+        DA \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+        = D
+        \begin{bmatrix}
+            1 & -1 \\
+            1 & -1
+        \end{bmatrix}
+        \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+        = D \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+        = 0
+        $$
+        So $B$ is also a member of $J_V$.
+        So we have showed the inclusion both directions and $J_V = (A)$ which means $J_V$ is a principal ideal.
     }
-\end{exercise}
 
 % hw problem 5 -----------------------------------------------------------------
 
-\begin{exercise}{135}{25}
+\newpage
+\section*{Simple version of Opt 383}
     \problem{
-        a
+        Let $R = C([0,1])$ and $x_0 \in [0,1]$.
+        Show that $I_{x_0} := \{ f \in R \mid f(x_0) = 0 \}$ is not a principal ideal.
     }
     \proof{
-
+        Suppose that $I_{x_0}$ is a principal ideal.
+        Then there is some $f \in I_{x_0}$ such that $I_{x_0} = (f)$.
+        What can we deduce about $f$?
+        We give a quick proof that $f^{-1} (0) = \{ x_0 \}$.
+        That $x_0 \in f^{-1} (0)$ is assumed so suppose there is some $y \neq x_0$ in the preimage of 0 under $f$.
+        Then $g*f (y_0) = 0$ for all $g$.
+        Yet there exist functions $h$ in $I_{x_0}$ where $h(y_0) \neq 0$ so $(f)$ would not equal $I_{x_0}$.
+        Thus the preimage is merely the singleton $\{ x_0 \}$. \parspace
+        Fix any $h \in I_{x_0}$, then since $I_{x_0}$ is a principal ideal there exists some $g \in R$ such that $h = g*f$.
+        Since $x_0$ is the only input for which $f$ vanishes we must have $g(x) = h(x)/f(x)$ for all $x \neq x_0$.
+        Since $g \in R = C([0,1])$ (which means that $\lim _{x \to x_0} g(x)$ exists) we know that $\lim _{x \to x_0} \frac{h(x)}{f(x)}$ exists.
+        But this not necessarily the case for any $h(x)$.
+        So we have found a contradiction and we can say that $I_{x_0}$ is not a principal ideal.
     }
-\end{exercise}
 
 \end{document}
