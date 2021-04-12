@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+
+\usepackage{../algebra}
+
+\begin{document}
+
+\coverpage{13}
+
+% hw problem 1 -----------------------------------------------------------------
+
+\begin{exercise}{163}{3}
+    \problem{
+        Find the greatest common divisor of the following polynomials over $\Q$, the field of rational numbers. \\\\
+        \indent {\bf (a)} $x^3 - 6x + 7$ and $x +  4$ \\
+        \indent {\bf (b)} $x^2 - 1$ and $2x^7 - 4x^5 + 2$ \\
+        \indent {\bf (c)} $3x^2 + 1$ and $x^6 + x^4 + x + 1$ \\
+        \indent {\bf (d)} $x^3 - 1$ and $x^7 - x^4 + x^3 - 1$
+    }
+    \proof{
+        I'm running short on time, so I didn't show much work on these ones. \\\\
+        {\bf (a)} Here, $x+4$ is irreducible so we only need to test if $x+4$ divides $x^3 - 6x + 7$.
+        Using long division, I found that this was not the case.
+        So the greatest common divisor is the polynomial 1. \\\\
+        {\bf (b)} Here $x^2 - 1 = (x+1)(x-1)$.
+        Using long divion again, I found that $x-1$ divides $2x^7 - 4x^5 + 2$ but $x+1$ does not so the greatest common divisor is $x-1$. \\\\
+        {\bf (c)} $3x^2 + 1$ is irreducible in $\R [x]$ so it is certainly irreducible in $\Q$.
+        For this problem, I found the zeros of $3x^2 +1$ in the comple plane then computed their output in the polynomial $x^6 + x^4 + x + 1$.
+        Neither resulted in 0, so $3x^2 +1$ does not divide $x^6+x^4+x+1$ and the greatest common divisor is 1. \\\\
+        {\bf (d)} For this one, $x^7 - x^4 + x^3 - 1 = x^4(x^3-1) + 1(x^3-1) = (x^4+1)(x^3-1)$ so $x^3-1$ is the greatest common divisor!
+    }
+\end{exercise}
+
+
+% hw problem 2 -----------------------------------------------------------------
+
+\begin{exercise}{164}{5}
+    \problem{
+        In the previous problem, let $I = \{ f(x) a(x) + g(x) b(x) \}$ where $f(x), g(x)$ run over $\Q [x]$ and $a(x)$ is the first polynomial and $b(x)$ is the second one in each part of the problem.
+        Find $d(x)$ so that $I = (d(x))$ for each part.
+    }
+    \proof{
+
+    }
+\end{exercise}
+
+% hw problem 3 -----------------------------------------------------------------
+
+\begin{exercise}{164}{10}
+    \problem{
+        Show that the following polynomials are irreducible over the field $F$ indicated. \\\\
+        \indent {\bf (a)} $x^2 + 7$ over $\R$ \\
+        \indent {\bf (b)} $x^3 - 3x + 3$ over $\Q$ \\
+        \indent {\bf (c)} $x^2 + x + 1$ over $\Z _2$ \\
+        \indent {\bf (d)} $x^2 + 1$ over $\Z _{19}$ \\
+        \indent {\bf (e)} $x^3 - 9$ over $\Z _{13}$\\
+        \indent {\bf (f)} $x^4 + 2x^2 + 2$ over $\Q$ \\
+    }
+    \proof{
+
+    }
+\end{exercise}
+
+% hw problem 4 -----------------------------------------------------------------
+
+\begin{exercise}{164}{13}
+    \problem{
+        Let $\R$ be the field of real numbers and $\C$ that of complex numbers.
+        Show that $\R [x] / (x^2 + 1) \cong \C$.
+    }
+    \proof{
+
+    }
+\end{exercise}
+
+% hw problem 5 -----------------------------------------------------------------
+
+\begin{exercise}{165}{16}
+    \problem{
+        Let $F = \Z _p$ for some prime number $p$ and $q(x) \in F[x]$ where $q(x)$ is irreducible with degree $n$.
+        Show that $F[x] / (q(x))$ has exactly $p^n$ elements.
+    }
+    \proof{
+
+    }
+\end{exercise}
+
+% hw problem 6 -----------------------------------------------------------------
+
+\begin{exercise}{171}{6}
+    \problem{
+        Let $F$ be the field and $\varphi$ an automorphism of $F[x]$ such that $\varphi (a) = a$ for all $a \in F$.
+        If $f(x) \in F[x]$, prove that $f(x)$ is irreducible in $F[x]$ if and only if $g(x) = \varphi (f(x))$ is.
+    }
+    \proof{
+
+    }
+\end{exercise}
+
+\end{document}
