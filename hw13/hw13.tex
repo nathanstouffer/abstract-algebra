@@ -24,7 +24,7 @@
         {\bf (b)} Here $x^2 - 1 = (x+1)(x-1)$.
         Using long divion again, I found that $x-1$ divides $2x^7 - 4x^5 + 2$ but $x+1$ does not so the greatest common divisor is $x-1$. \\\\
         {\bf (c)} $3x^2 + 1$ is irreducible in $\R [x]$ so it is certainly irreducible in $\Q$.
-        For this problem, I found the zeros of $3x^2 +1$ in the comple plane then computed their output in the polynomial $x^6 + x^4 + x + 1$.
+        For this problem, I found the zeros of $3x^2 +1$ in the complex plane then computed their output in the polynomial $x^6 + x^4 + x + 1$.
         Neither resulted in 0, so $3x^2 +1$ does not divide $x^6+x^4+x+1$ and the greatest common divisor is 1. \\\\
         {\bf (d)} For this one, $x^7 - x^4 + x^3 - 1 = x^4(x^3-1) + 1(x^3-1) = (x^4+1)(x^3-1)$ so $x^3-1$ is the greatest common divisor!
     }
@@ -39,7 +39,8 @@
         Find $d(x)$ so that $I = (d(x))$ for each part.
     }
     \proof{
-
+        In the proof of Theorem 4.5.7 in the textbook, it is noted that for an ideal $I = \{ f(x) a(x) + g(x) b(x) \mid f(x) , g(x) \in \Q [x] \}$ with fixed $a(x), b(x)$ that $I = (d(x))$ where $(a(x), b(x)) = d(x)$ the greatest common divisor.
+        Thus the $d(x)$ that we search for in this problem is given by the answers to the last problem.
     }
 \end{exercise}
 
@@ -68,7 +69,22 @@
         Show that $\R [x] / (x^2 + 1) \cong \C$.
     }
     \proof{
-
+        We will show this with the first isomorphism theorem.
+        To do this, we need a surjective homomorphism $\varphi: \R [x] \to \C$ with $\ker \varphi = (x^2 + 1)$.
+        Consider the map $\varphi: \R [x] \to \C$ defined by taking the polynomial $a_k x^k + \cdots + a_1 x + a_0$ to the complex number $a_k i^k + \cdots + a_1 i + a_0$. \parspace
+        That $\varphi$ is a surjection is immediate by choosing $bx + a \in \R [x]$ for the complex number $a+ib \in \C$.
+        Now we verify that $\varphi$ is a homomorphism.
+        The addition component can be checked easily.
+        For multiplication, pick $a(x), b(x) \in \R [x]$.
+        Then we have $\varphi (a_0 + \cdots + a_k x^k) \varphi (b_0 + \cdots + b_l x^l) = (a_0 + \cdots + a_k i^k) (b_0 + \cdots + b_l i^l)$ and $\varphi (a(x) b(x)) = \varphi ( (a_0 + \cdots + a_k x^k) (b_0 + \cdots + b_l x^l) )$ where multplying the polynomials has the same ``structure" as multiplying the complex numbers (ie foiling) so the multiplicative property of the homomorphism $\varphi$ holds. \parspace
+        Now to check that $\ker \varphi = (x^2 + 1)$.
+        Going to the left, pick any $p(x) \in (x^2 + 1) \implies $ there exists some $f(x) \in \R [x]$ such that $p(x) = f(x) (x^2+1) \implies \varphi (p(x)) = \varphi (f(x) (x^2+1)) = \varphi (f(x)) \varphi (x^2+1) = \varphi (f(x)) (i^2 + 1) = \varphi (f(x)) 0 = 0$ so $p(x) \in \ker \varphi$.
+        Now going to the right, fix any $p(x) \in \ker \varphi$.
+        Then $\varphi (p(x)) = p_0 + p_1 i + \cdots p_n i^n = 0$.
+        Now let $p$ take any complex number as an input instead of just real inputs ($p$ is a member of $\C [z]$ as well as $\R [x]$).
+        In the context of $\C$, this means that $p(i) = 0$, which is to say that $z^2 + 1 \mid p(z)$.
+        But then all the coefficients are real so we must also have $x^2 + 1 \mid p(x) \implies p(x) \in (x^2 + 1)$. \parspace
+        Thus we have all the requirements for $\varphi$ to be the map in the first isomorphism theorem and we can conclude that $\R [x] / (x^2 + 1) \cong \C$.
     }
 \end{exercise}
 
@@ -92,7 +108,19 @@
         If $f(x) \in F[x]$, prove that $f(x)$ is irreducible in $F[x]$ if and only if $g(x) = \varphi (f(x))$ is.
     }
     \proof{
-
+        If $\varphi (f(x)) = f(x)$ then this problem is trivial.
+        Let's show that this is the case.
+        Since $\varphi$ is an automorphism, it is an isomorphism from $F[x] \to F[x]$.
+        Fix $f(x) = a_0 + a_1 x + \cdots + a_n x^n \in F[x]$ and consider the following
+        \begin{align*}
+            \varphi (f(x)) &= \varphi ( a_0 + a_1 x + \cdots + a_n x^n ) \\
+            &= \varphi (a_0) + \varphi (a_1 x) + \cdots + \varphi (a_n x^n) \\
+            &= \varphi (a_0) + \varphi (a_1) \varphi (x) + \cdots + \varphi (a_n) \varphi (x^n) \\
+            &= a_0 + a_1 \varphi (x) + \cdots + a_n \varphi (x) ^n \\
+            &= a_0 + a_1 x + \cdots + a_n x^n = f(x)
+        \end{align*}
+        where made several crucial steps based on the fact that $\varphi$ is a homomorphism with the property that $\varphi (a) = a $ for any $a \in F$.
+        Note that all the $a_i \in F$ and $x \in F$ so our steps were justified.
     }
 \end{exercise}
 
