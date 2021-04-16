@@ -16,16 +16,15 @@
         \indent {\bf (c)} $3x^2 + 1$ and $x^6 + x^4 + x + 1$ \\
         \indent {\bf (d)} $x^3 - 1$ and $x^7 - x^4 + x^3 - 1$
     }
-    \proof{
-        I'm running short on time, so I didn't show much work on these ones. \\\\
+    \proof{ \\\\
         {\bf (a)} Here, $x+4$ is irreducible so we only need to test if $x+4$ divides $x^3 - 6x + 7$.
         Using long division, I found that this was not the case.
         So the greatest common divisor is the polynomial 1. \\\\
         {\bf (b)} Here $x^2 - 1 = (x+1)(x-1)$.
         Using long divion again, I found that $x-1$ divides $2x^7 - 4x^5 + 2$ but $x+1$ does not so the greatest common divisor is $x-1$. \\\\
-        {\bf (c)} $3x^2 + 1$ is irreducible in $\R [x]$ so it is certainly irreducible in $\Q$.
-        For this problem, I found the zeros of $3x^2 +1$ in the complex plane then computed their output in the polynomial $x^6 + x^4 + x + 1$.
-        Neither resulted in 0, so $3x^2 +1$ does not divide $x^6+x^4+x+1$ and the greatest common divisor is 1. \\\\
+        {\bf (c)} For this problem, I found the zeros of $3x^2 +1$ in the complex plane then computed their output in the polynomial $x^6 + x^4 + x + 1$.
+        Neither resulted in 0, so $3x^2 +1$ does not divide $x^6+x^4+x+1$ and the greatest common divisor is 1.
+        So $3x^2 + 1$ is irreducible in $\R [x]$ so it is certainly irreducible in $\Q [x]$.\\\\
         {\bf (d)} For this one, $x^7 - x^4 + x^3 - 1 = x^4(x^3-1) + 1(x^3-1) = (x^4+1)(x^3-1)$ so $x^3-1$ is the greatest common divisor!
     }
 \end{exercise}
@@ -53,11 +52,20 @@
         \indent {\bf (b)} $x^3 - 3x + 3$ over $\Q$ \\
         \indent {\bf (c)} $x^2 + x + 1$ over $\Z _2$ \\
         \indent {\bf (d)} $x^2 + 1$ over $\Z _{19}$ \\
-        \indent {\bf (e)} $x^3 - 9$ over $\Z _{13}$\\
+        \indent {\bf (e)} $x^3 - 9$ over $\Z _{13}$ \\
         \indent {\bf (f)} $x^4 + 2x^2 + 2$ over $\Q$ \\
     }
-    \proof{
-
+    \proof{ \\\\
+        {\bf (a)} Using the bijection between real numbers $x \mapsto \sqrt{7} y $, map $x^2 + 7$ to $(\sqrt{7} y)^2 + 7 = 7y^2 + 7 = 7(y^2 + 1)$.
+        Then, by the result in the next problem $\R [y]/(y^2 + 1)$ is a field so $(y^2 + 1)$ is maximal which means $y^2+1$ is irreducible over $\R$.
+        This implies that $x^2 + 7$ is irreducible in $\R [x]$. \\\\
+        {\bf (b)} For $x^3 - 3x + 3$, note that $p=3$ satisfies the Eisenstein criterion so the polynomial is irreducible in $\Z [x]$.
+        Then Gauss' lemma tells us that the same polynomial is irreducible over $\Q$. \\\\
+        {\bf (c)} For this one, just plug in the two options to $p(x) = x^2 + x + 1$.
+        We have $p(0) = p(1) = 1$ so $p(x)$ is irreducible over $\Z _2$. \\\\
+        {\bf (d)} Looking at $x^2 + 1$ over $\Z _{19}$, we know $x^2 + 1$ is irreducible in $\R [x]$ so it is also irreducible in $\Z _{19} [x]$. \\\\
+        {\bf (e)} For $x^3 - 9$ over $\Z _{13}$, has no zeros in $\Z _{13}$ so it is irreducible. \\\\
+        {\bf (f)} Here we use the Eisenstein criterion with $p=2$ to show that $x^4 + 2x^2 + 2$ is irreducible over $\Z$ and Gauss' lemma tells us that the same polynomial is irreducible over $\Q$. \\\\
     }
 \end{exercise}
 
@@ -96,7 +104,13 @@
         Show that $F[x] / (q(x))$ has exactly $p^n$ elements.
     }
     \proof{
-
+        I couldn't quite prove equality on this one, maybe I'm missing something super obvious.
+        I did prove that the set $F[x] / (q(x))$ has at least $p^n$ elements.
+        Since $q(x)$ has degree $n$ we know that $q(x) = a_0 + a_1 x + \cdots + a_n x^n$ with $a_n \neq 0$ and the irreducibility implies that the ideal $(q(x))$ contains only one element (0) that has degreen less than $n$.
+        Thus each $p(x)$ with $\deg p(x) < n$ produces a unique element of $F[x] / (q(x))$.
+        The polynomial $p(x) \in \Z _p$ has the form $a_0 + a_1 x + \cdots + a_{n-1} x^{n-1}$ where each $a_i$ (of which there are $n$) has $|\Z _p| = p$ options.
+        Thus we have at least $p^n$ elements in the set $F[x] / (q(x))$.
+        I look forward to reading the solutions to learn how to show the upper bound.
     }
 \end{exercise}
 
