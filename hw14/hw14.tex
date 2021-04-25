@@ -13,7 +13,14 @@
         Show that $a = \sqrt{2} - \sqrt{3}$ is algebraic over $\Q$ of degree at most 4 by exhibiting a polynomial $f(x)$ of degree 4 over $\Q$ such that $f(a) = 0$.
     }
     \proof{
-
+		Consider the function $f(x) = x^4 - 10 x^2 + 1 \in \Q [x]$.
+		We check that $f(a) = 0$:
+		\begin{align*}
+			f(a) = f(\sqrt{2} - \sqrt{3}) &= (\sqrt{2} - \sqrt{3})^4 - 10 (\sqrt{2} - \sqrt{3})^2 + 1 \\
+			&= (5 - 2 \sqrt{6})^2 - 10 (5 - 2 \sqrt{6}) + 1 \\
+			&= 25 + 4*6 - 20 \sqrt{6} - 50 + 20 \sqrt{6} + 1 \\
+			&= 0 + 0*\sqrt{6} = 0
+		\end{align*}
     }
 \end{exercise}
 
@@ -23,11 +30,15 @@
 \newpage
 \section*{Field Description}
     \problem{
-        Give a concrete description of teh two fields $\Q [x] / (p(x))$ and $\R [x] / (p(x))$ for $p(x) := x^2 + 2$.
+        Give a concrete description of the two fields $\Q [x] / (p(x))$ and $\R [x] / (p(x))$ for $p(x) := x^2 + 2$.
         This is to say that you should identify them with some subsets of familiar fields, as done in the lecture.
     }
     \proof{
-
+		For $\Q [x]$ we have $\Q [x] / (p(x)) \cong \Q [i \sqrt{2}] := \{ -a2 + bi \sqrt{2} \mid a,b \in \Q \}$.
+		This is a subset of $\C$ that is the rational numbers at any rational multiple of $i \sqrt{2}$. \parspace
+		For $\R [x]$ we have $\R [x] / (p(x)) \cong \R [i \sqrt{2}] := \{ -x2 + yi \sqrt{2} \mid x, y \in \R \} $.
+		This the entire field $\C$.
+		Given $z = a+ib \in \C$, take $x = -a/2$ and $y = b/\sqrt{2}$.
     }
 
 % hw problem 3 -----------------------------------------------------------------
@@ -38,7 +49,10 @@
         Identify the smallest field containing $\Q$ and $2^{1/4}$ and show that it is a four-dimensional vector space over the field of rational numbers $\Q$.
     }
     \proof{
-
+		Consider $(2^{1/4})^k$ for any $k \in \N$.
+		This gives $2^{1/4}, 2^{1/2}, 2^{3/4}, 2$ up to multiples of powers of 2.
+		Thus to contain $2^{1/4}$ we must at least have $F := \{ a *2^{1/4} + b*2^{1/2} + c*2^{3/4} + d*2 \mid a,b,c,d \in \Q \}$.
+		Since this also contains the rationals (by setting $a = b = c = 0$), we are done!
     }
 
 % hw problem 4 -----------------------------------------------------------------
@@ -49,7 +63,7 @@
         Show that the regular pentagon (inscribed in the unit circle) is constructible by verifying that $x_0 = \sin (72 ^\circ)$ can be reached by a chain of two quadratic field extensions: $\Q \subset K \subset \Q (x_0)$.
     }
     \proof{
-
+		Sorry Jarek, I couldn't get this one and am running short on time.
     }
 
 % hw problem 5 -----------------------------------------------------------------
